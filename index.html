@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Legale Puliatti</title>
+    <meta name="description" content="Lo Studio Legale Puliatti si occupa di diritto civile, diritto del lavoro e diritto amministrativo, con particolare attenzione al diritto sanitario.">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Full-screen intro overlay -->
+    <section id="intro" class="intro">
+        <div class="intro-logo-group">
+            <h1 class="intro-puliatti">PULIATTI</h1>
+            <div class="intro-subtitle">
+                <span class="intro-studio">STUDIO</span>
+                <span class="intro-legale">LEGALE</span>
+            </div>
+        </div>
+        <div class="intro-scroll-arrow" aria-label="Scroll down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Navbar (hidden initially, appears on scroll) -->
+    <nav class="navbar" id="navbar">
+        <div class="logo" id="nav-logo">PULIATTI</div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#studio">LO STUDIO</a></li>
+            <li><a href="#attivita">ATTIVITÀ</a></li>
+            <li><a href="#azioni">AZIONI LEGALI</a></li>
+            <li><a href="#contatti">CONTATTI</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle Theme">
+            <span class="icon-light">☼</span>
+            <span class="icon-dark">☾</span>
+        </button>
+    </nav>
+
+    <main>
+        <section id="home" class="hero section">
+            <div class="hero-content">
+                <p class="subtitle fade-in delay-1">Diritto Civile | Diritto Amministrativo | Diritto del Lavoro | Diritto Sanitario</p>
+            </div>
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <section id="studio" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">Lo Studio</h2>
+                <div class="content-block">
+                    <p class="large-text">Lo Studio Legale Puliatti, fondato nel 1990, si occupa di diritto civile, diritto del lavoro e diritto amministrativo, con particolare attenzione per tutte le controversie relative al diritto sanitario e della salute anche dinanzi alle Corti superiori.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="attivita" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">Attività</h2>
+                <div class="grid-4">
+                    <div class="card">
+                        <h3>Diritto Sanitario</h3>
+                        <p>Consulenza ed assistenza in diritto tributario in materia di rimborso IRAP. Diritto sindacale, studio delle organizzazioni sindacali, contratto collettivo di lavoro e sciopero, quale consulente di Organizzazioni Sindacali del settore medico.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Diritto Civile</h3>
+                        <p>Giudizi e consulenze relative alla materia dei contratti, delle obbligazioni, dei diritti reali, delle persone, della famiglia e della responsabilità civile. Assistenza per la risoluzione amichevole di liti su diritti disponibili attraverso l'istituto della negoziazione assistita.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Diritto Amministrativo</h3>
+                        <p>Consulenza ed assistenza processuale per conto di privati ed amministrazioni pubbliche, con particolare riferimento al procedimento amministrativo, enti pubblici, contratti, pubblico impiego, oltre all'urbanistica ed edilizia.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Diritto del Lavoro</h3>
+                        <p>Assistenza completa in materia di diritto del lavoro, contrattualistica, e contenzioso lavorativo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="azioni" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">Azioni Legali</h2>
+                <div class="content-block">
+                    <h3>Azioni medici specialisti 83_91</h3>
+                    <p>Questo studio si è occupato di diverse azioni giudiziarie volte ad ottenere il risarcimento dei danni in favore dei medici che hanno frequentato le scuole di specializzazione negli anni dal 1976 al 1991. Molti medici che hanno promosso dette azioni hanno già ricevuto le somme previste in sentenza.</p>
+                    <p>Dopo alterni esiti delle controversie, la Corte di Cassazione si è pronunciata a Sezioni Unite con la sentenza n. 9147/2009. Rimane chiaramente difficoltoso conseguire il risultato auspicato per quanti non abbiano mai in passato avviato una azione o interrotto i termini di prescrizione.</p>
+                    <a href="mailto:segreteria@studiolegalepuliatti.com" class="btn">Richiedi Assistenza</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contatti" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">Contatti</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Sede</h3>
+                        <p>Via G. D'Annunzio n. 111<br>Catania, 95128</p>
+                        <p class="network">Network Labour&Legal:<br>Roma – Catania – Firenze</p>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Recapiti</h3>
+                        <p>Tel: 095 931944</p>
+                        <p>Email: segreteria@studiolegalepuliatti.com</p>
+                        <a href="https://maps.google.com/?q=Via+G.+D'Annunzio+111+Catania" target="_blank" class="btn outline">Apri in Maps</a>
+                    </div>
+                </div>
+                <div id="map" class="map-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Responsabile del sito avv. Antonio Puliatti Iscritto all'Ordine degli Avvocati di Catania.</p>
+            <p>Polizza professionale UnipolSai n. 1/39105/122/170602929/1</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
