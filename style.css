@@ -70,6 +70,11 @@ h1, h2, h3, h4, .logo {
     font-family: 'Arrow', serif;
     font-weight: normal;
     letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+p {
+    margin-bottom: 1.25rem;
 }
 
 a {
@@ -132,7 +137,7 @@ a {
 .intro-legale {
     font-family: 'Geist', sans-serif;
     font-size: clamp(0.75rem, 1.8vw, 1.1rem);
-    letter-spacing: 0.25em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-muted);
 }
@@ -400,7 +405,7 @@ a {
 
 .label {
     font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     color: var(--highlight);
     text-transform: uppercase;
     font-weight: 600;
@@ -417,9 +422,10 @@ a {
 /* Content Blocks */
 .large-text {
     font-size: 1.8rem;
-    line-height: 1.5;
+    line-height: 1.4;
     color: var(--text-main);
     max-width: 900px;
+    margin-bottom: 2rem;
 }
 
 .grid-4 {
@@ -451,6 +457,8 @@ a {
 .card p {
     color: var(--text-muted);
     font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 0;
 }
 
 /* Contacts */
