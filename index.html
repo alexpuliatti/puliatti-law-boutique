@@ -10,11 +10,14 @@
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
+<body class="light-theme">
 
-    <!-- Full-screen intro overlay -->
-    <section id="intro" class="intro">
-        <div class="intro-logo-group">
+    <!-- Full-screen intro overlay (background only) -->
+    <section id="intro" class="intro"></section>
+
+    <!-- Intro Logo (Fixed, outside the scrolling background for seamless transition) -->
+    <div class="intro-logo-group" id="intro-logo">
+        <div class="intro-logo-inner">
             <h1 class="intro-puliatti">PULIATTI</h1>
             <div class="intro-subtitle">
                 <span class="intro-studio">STUDIO</span>
@@ -26,7 +29,7 @@
                 <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
         </div>
-    </section>
+    </div>
 
     <!-- Navbar (hidden initially, appears on scroll) -->
     <nav class="navbar" id="navbar">

@@ -6,28 +6,28 @@
     --c-beige: #D6D2C4;
     --c-offwhite: #E6E9E5;
 
-    /* Theme Variables - Default to Dark */
-    --bg-main: var(--c-black);
-    --bg-alt: rgba(214, 210, 196, 0.05); /* Subtle beige tint for cards in dark mode */
-    --text-main: var(--c-offwhite);
-    --text-muted: var(--c-beige);
+    /* Theme Variables - Default to Light */
+    --bg-main: var(--c-offwhite);
+    --bg-alt: var(--c-beige);
+    --text-main: var(--c-black);
+    --text-muted: #4B5156;
     --accent: var(--c-blue);
     --highlight: var(--c-red);
-    --border: rgba(230, 233, 229, 0.1);
+    --border: rgba(16, 24, 32, 0.1);
 
     /* Custom easing curves — much stronger than CSS defaults */
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.light-theme {
-    --bg-main: var(--c-offwhite);
-    --bg-alt: var(--c-beige);
-    --text-main: var(--c-black);
-    --text-muted: #4B5156; /* Slightly lighter black for contrast */
+.dark-theme {
+    --bg-main: var(--c-black);
+    --bg-alt: rgba(214, 210, 196, 0.05);
+    --text-main: var(--c-offwhite);
+    --text-muted: var(--c-beige);
     --accent: var(--c-blue);
     --highlight: var(--c-red);
-    --border: rgba(16, 24, 32, 0.1);
+    --border: rgba(230, 233, 229, 0.1);
 }
 
 @font-face {
@@ -87,7 +87,7 @@ a {
    INTRO — Full-viewport centered logo state
    ============================================ */
 .intro {
-    position: fixed;
+    position: absolute; /* Changed from fixed to absolute to scroll with page */
     top: 0;
     left: 0;
     width: 100%;
@@ -108,11 +108,19 @@ a {
 }
 
 .intro-logo-group {
+    position: fixed;
+    inset: 0; /* Full screen */
+    display: grid;
+    place-items: center; /* The most stable centering method */
+    z-index: 2001;
+    pointer-events: none;
+}
+
+.intro-logo-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
-    will-change: transform, opacity;
+    text-align: center;
 }
 
 .intro-puliatti {
@@ -123,13 +131,14 @@ a {
     color: var(--text-main);
     line-height: 1;
     white-space: nowrap;
+    margin: 0;
 }
 
 .intro-subtitle {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 0.15em;
+    justify-content: space-between; /* Anchor to opposite margins */
+    width: 100%; /* Fill the width of the parent (PULIATTI) */
+    margin-top: 1.25rem;
     will-change: opacity, transform;
 }
 
@@ -142,16 +151,24 @@ a {
     color: var(--text-muted);
 }
 
-/* Scroll-down arrow — gentle bounce */
+/* Scroll-down arrow — Locked to bottom */
 .intro-scroll-arrow {
     position: absolute;
-    bottom: 3rem;
+    bottom: 4rem; /* Locked to the actual bottom of the page */
     left: 50%;
     transform: translateX(-50%);
     color: var(--text-muted);
-    animation: arrowBounce 2s var(--ease-in-out) infinite;
+    animation: arrowBounce 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
     will-change: transform;
     cursor: pointer;
+    pointer-events: auto;
+    transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .intro-scroll-arrow:hover {
+        color: var(--highlight);
+    }
 }
 
 @keyframes arrowBounce {
@@ -161,7 +178,7 @@ a {
 
 /* Spacer pushes content below the fixed intro so there's scroll room */
 .intro-spacer {
-    height: 100vh;
+    height: 100vh; /* Full viewport height for a clean physical break */
     pointer-events: none;
 }
 
@@ -274,8 +291,7 @@ a {
    SECTIONS
    ============================================ */
 .section {
-    padding: 8rem 3rem;
-    min-height: 100vh;
+    padding: 6rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -288,8 +304,8 @@ a {
 }
 
 .section-title {
-    font-size: 3.5rem;
-    margin-bottom: 3rem;
+    font-size: 2.5rem; /* Reduced from 3.5rem */
+    margin-bottom: 2rem; /* Reduced from 3rem */
     color: var(--text-main);
     border-bottom: 1px solid var(--border);
     padding-bottom: 1rem;
@@ -413,7 +429,7 @@ a {
 
 .signature {
     font-family: 'Arrow', serif;
-    font-size: 2.5rem;
+    font-size: 2rem; /* Reduced from 2.5rem */
     margin-top: 2rem;
     color: var(--text-main);
     opacity: 0.8;
@@ -421,7 +437,7 @@ a {
 
 /* Content Blocks */
 .large-text {
-    font-size: 1.8rem;
+    font-size: 1.35rem; /* Reduced from 1.8rem */
     line-height: 1.4;
     color: var(--text-main);
     max-width: 900px;
@@ -449,14 +465,14 @@ a {
 }
 
 .card h3 {
-    font-size: 1.8rem;
+    font-size: 1.4rem; /* Reduced from 1.8rem */
     margin-bottom: 1rem;
     color: var(--text-main);
 }
 
 .card p {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reduced from 1.1rem */
     line-height: 1.5;
     margin-bottom: 0;
 }
@@ -469,13 +485,13 @@ a {
 }
 
 .contact-grid h3 {
-    font-size: 2rem;
+    font-size: 1.4rem; /* Reduced from 2rem */
     margin-bottom: 1.5rem;
     color: var(--accent);
 }
 
 .contact-grid p {
-    font-size: 1.2rem;
+    font-size: 1rem; /* Reduced from 1.2rem */
     margin-bottom: 0.5rem;
     color: var(--text-main);
 }
@@ -687,7 +703,7 @@ footer {
     }
     
     .section {
-        padding: 6rem 1.5rem;
+        padding: 4rem 1.5rem;
     }
     
     .section-title {

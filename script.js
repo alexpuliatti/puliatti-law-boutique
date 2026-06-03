@@ -6,20 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
+    if (savedTheme === 'dark') {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
     }
 
     themeToggleBtn.addEventListener('click', () => {
-        if (body.classList.contains('dark-theme')) {
-            body.classList.remove('dark-theme');
-            body.classList.add('light-theme');
-            localStorage.setItem('theme', 'light');
-        } else {
+        if (body.classList.contains('light-theme')) {
             body.classList.remove('light-theme');
             body.classList.add('dark-theme');
             localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light');
         }
     });
 
@@ -28,12 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const intro = document.getElementById('intro');
     const navbar = document.getElementById('navbar');
-    const introPuliatti = intro.querySelector('.intro-puliatti');
-    const introSubtitle = intro.querySelector('.intro-subtitle');
-    const introArrow = intro.querySelector('.intro-scroll-arrow');
+    const introLogoGroup = document.getElementById('intro-logo');
+    const introPuliatti = introLogoGroup.querySelector('.intro-puliatti');
+    const introSubtitle = introLogoGroup.querySelector('.intro-subtitle');
+    const introArrow = introLogoGroup.querySelector('.intro-scroll-arrow');
 
     // How many pixels of scroll to complete the full transition
-    const TRANSITION_DISTANCE = window.innerHeight * 0.5;
+    const TRANSITION_DISTANCE = window.innerHeight;
 
     // Click arrow → scroll down to trigger the transition
     introArrow.addEventListener('click', () => {
@@ -49,48 +50,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollY = window.scrollY;
         const progress = Math.min(scrollY / TRANSITION_DISTANCE, 1);
 
-        // --- INTRO OVERLAY ---
+        // --- INTRO & LOGO HANDOFF ---
         if (progress <= 0) {
-            // Full intro: everything at default
             intro.style.opacity = '1';
-            intro.style.pointerEvents = 'auto';
-            introPuliatti.style.transform = '';
+            introLogoGroup.style.pointerEvents = 'auto';
+            introPuliatti.style.transform = 'none';
             introPuliatti.style.opacity = '1';
             introSubtitle.style.opacity = '1';
-            introSubtitle.style.transform = '';
             introArrow.style.opacity = '1';
             navbar.classList.remove('visible');
             return;
         }
 
-        // During and after transition: disable intro click-blocking
-        intro.style.pointerEvents = 'none';
-
-        // Fade the whole intro background out
-        intro.style.opacity = String(1 - progress);
-
-        // "STUDIO LEGALE" fades out quickly in the first 35% of scroll
+        // Disable intro background as it leaves
+        intro.style.opacity = String(1 - Math.min(progress * 1.5, 1));
+        
+        // Hide arrow and subtitle quickly
+        const quickProg = Math.min(progress / 0.2, 1);
+        introArrow.style.opacity = String(1 - quickProg);
+        
         const subProg = Math.min(progress / 0.35, 1);
         introSubtitle.style.opacity = String(1 - subProg);
-        introSubtitle.style.transform = `translateY(${subProg * 12}px)`;
+        introSubtitle.style.transform = `translateY(${subProg * 20}px)`;
 
-        // Scroll arrow disappears very fast (first 20%)
-        const arrowProg = Math.min(progress / 0.2, 1);
-        introArrow.style.opacity = String(1 - arrowProg);
-
-        // PULIATTI logo: scale down toward top-left
-        const scale = 1 - progress * 0.7;          // 1 → 0.3
-        const moveX = progress * -38;               // % of viewport width leftward
-        const moveY = progress * -42;               // % of viewport height upward
+        // --- SEAMLESS LOGO TRANSITION ---
+        // Coordinates to land exactly on the Navbar Logo
+        const scale = 1 - progress * 0.7; 
+        const moveX = progress * -46.7; 
+        const moveY = progress * -46.5; 
+        
+        // No more calc(-50%) - letting flexbox handle the centering
         introPuliatti.style.transform =
             `translate(${moveX}vw, ${moveY}vh) scale(${scale})`;
-        introPuliatti.style.opacity = String(1 - progress * 0.5);
+        
+        // Final handoff: fade intro logo at the very end
+        const handoff = Math.max((progress - 0.94) / 0.06, 0);
+        introPuliatti.style.opacity = String(1 - handoff);
 
-        // --- NAVBAR ---
-        if (progress >= 0.85) {
+        // --- NAVBAR REVEAL ---
+        if (progress >= 0.95) {
             navbar.classList.add('visible');
+            introLogoGroup.style.pointerEvents = 'none';
         } else {
             navbar.classList.remove('visible');
+            introLogoGroup.style.pointerEvents = 'auto';
         }
     }
 
