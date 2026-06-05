@@ -8,6 +8,7 @@
 
     /* Theme Variables - Default to Light */
     --bg-main: var(--c-offwhite);
+    --bg-rgb: 230, 233, 229; /* RGB of offwhite */
     --bg-alt: var(--c-beige);
     --text-main: var(--c-black);
     --text-muted: #4B5156;
@@ -22,6 +23,7 @@
 
 .dark-theme {
     --bg-main: var(--c-black);
+    --bg-rgb: 16, 24, 32; /* RGB of black */
     --bg-alt: rgba(214, 210, 196, 0.05);
     --text-main: var(--c-offwhite);
     --text-muted: var(--c-beige);
@@ -195,9 +197,12 @@ a {
     align-items: center;
     padding: 1.25rem 3rem;
     z-index: 1000;
-    background: var(--bg-main);
+    background: rgba(var(--bg-rgb), 0.5); /* Reduced opacity for better blur visibility */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    will-change: backdrop-filter, transform; /* Hardware acceleration hint */
     box-shadow: 0 1px 0 var(--border);
-    transition: background 0.4s ease;
+    transition: background 0.4s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 
     /* Start hidden — animated in via JS */
     opacity: 0;
@@ -221,10 +226,12 @@ a {
 }
 
 .logo {
+    font-family: 'Arrow', serif;
     font-size: 1.8rem;
     color: var(--text-main);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
+    padding-left: 0.12em; /* Match intro logo for seamless handoff */
 }
 
 .nav-links {

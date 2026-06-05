@@ -24,10 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
-    // 2. Intro → Navbar Scroll Transition
+    // 2. Intro → Navbar Scroll Transition (Interpolation Logic)
     // ============================================
     const intro = document.getElementById('intro');
     const navbar = document.getElementById('navbar');
+    const navLogo = document.getElementById('nav-logo');
     const introLogoGroup = document.getElementById('intro-logo');
     const introPuliatti = introLogoGroup.querySelector('.intro-puliatti');
     const introSubtitle = introLogoGroup.querySelector('.intro-subtitle');
@@ -36,7 +37,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // How many pixels of scroll to complete the full transition
     const TRANSITION_DISTANCE = window.innerHeight;
 
-    // Click arrow → scroll down to trigger the transition
+    // Pre-calculate positions for pixel-perfect interpolation
+    let startX, startY, endX, endY;
+
+    function calibratePositions() {
+        // Reset transform to get natural positions
+        const originalTransform = introPuliatti.style.transform;
+        introPuliatti.style.transform = 'none';
+        
+        // Intro center (The "Start")
+        const introRect = introPuliatti.getBoundingClientRect();
+        startX = introRect.left + introRect.width / 2;
+        startY = introRect.top + introRect.height / 2;
+
+        // Navbar position (The "Target")
+        // We temporarily show the navbar at its final position to measure it
+        const wasVisible = navbar.classList.contains('visible');
+        navbar.style.visibility = 'hidden';
+        navbar.classList.add('visible');
+        
+        const navRect = navLogo.getBoundingClientRect();
+        endX = navRect.left + navRect.width / 2;
+        endY = navRect.top + navRect.height / 2;
+
+        // Restore state
+        if (!wasVisible) navbar.classList.remove('visible');
+        navbar.style.visibility = 'visible';
+        introPuliatti.style.transform = originalTransform;
+    }
+
+    calibratePositions();
+    window.addEventListener('resize', calibratePositions);
+
+    // Click arrow → scroll down
     introArrow.addEventListener('click', () => {
         window.scrollTo({
             top: TRANSITION_DISTANCE + 100,
@@ -73,22 +106,19 @@ document.addEventListener('DOMContentLoaded', () => {
         introSubtitle.style.opacity = String(1 - subProg);
         introSubtitle.style.transform = `translateY(${subProg * 20}px)`;
 
-        // --- SEAMLESS LOGO TRANSITION ---
-        // Coordinates to land exactly on the Navbar Logo
-        const scale = 1 - progress * 0.7; 
-        const moveX = progress * -46.7; 
-        const moveY = progress * -46.5; 
+        // --- INTERPOLATED LOGO TRANSITION ---
+        const currentX = (endX - startX) * progress;
+        const currentY = (endY - startY) * progress;
+        const scale = 1 - progress * 0.8; // Landing at 0.2 scale
+
+        introPuliatti.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
         
-        // No more calc(-50%) - letting flexbox handle the centering
-        introPuliatti.style.transform =
-            `translate(${moveX}vw, ${moveY}vh) scale(${scale})`;
-        
-        // Final handoff: fade intro logo at the very end
-        const handoff = Math.max((progress - 0.94) / 0.06, 0);
+        // Final handoff: fade intro logo at the very end (98% → 100%)
+        const handoff = Math.max((progress - 0.98) / 0.02, 0);
         introPuliatti.style.opacity = String(1 - handoff);
 
         // --- NAVBAR REVEAL ---
-        if (progress >= 0.95) {
+        if (progress >= 0.98) {
             navbar.classList.add('visible');
             introLogoGroup.style.pointerEvents = 'none';
         } else {
@@ -97,14 +127,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Combined Scroll Management (Intro Transition + Dynamic Blur)
+    let blurTimeout;
+    let isScrolling = false;
+
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
                 handleScroll();
+                
+                // Only update blur style if we've just started scrolling
+                if (!isScrolling) {
+                    navbar.style.backdropFilter = "blur(8px)";
+                    navbar.style.webkitBackdropFilter = "blur(8px)";
+                    isScrolling = true;
+                }
+
                 ticking = false;
             });
             ticking = true;
         }
+
+        clearTimeout(blurTimeout);
+        blurTimeout = setTimeout(() => {
+            navbar.style.backdropFilter = "blur(24px)";
+            navbar.style.webkitBackdropFilter = "blur(24px)";
+            isScrolling = false;
+        }, 150); // Slightly longer delay for smoother landing
     }, { passive: true });
 
     // Run once on load in case the page loads mid-scroll (e.g. browser restore)
