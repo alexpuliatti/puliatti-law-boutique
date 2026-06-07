@@ -5,9 +5,7 @@ DOVE
 
 Catania via G. D’Annunzio n. 111
 
-Network Labour&Legal
-
-Roma – Catania – Firenze
+Studio Allegra Mascheroni Puliatti
 
 ### Footer
 

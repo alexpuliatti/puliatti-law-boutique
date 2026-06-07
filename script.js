@@ -189,20 +189,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const map = new maplibregl.Map({
         container: 'map',
         style: isDark ? mapStyleDark : mapStyleLight,
-        center: [15.085, 37.514],
-        zoom: 14,
-        scrollZoom: false
+    const markers = [
+        { name: 'Catania', address: 'Via G. D\'Annunzio n. 111', coords: [15.085, 37.514] },
+        { name: 'Roma', address: 'Via di Ripetta n. 22', coords: [12.496, 41.902] },
+        { name: 'Firenze', address: 'Lungarno Vespucci n. 20', coords: [11.255, 43.769] }
+    ];
+
+    const bounds = new maplibregl.LngLatBounds();
+
+    markers.forEach(loc => {
+        const popup = new maplibregl.Popup({ offset: 25 })
+            .setHTML(`<h3>${loc.name}</h3><p>${loc.address}</p>`);
+
+        new maplibregl.Marker({ color: '#A73C2A' })
+            .setLngLat(loc.coords)
+            .setPopup(popup)
+            .addTo(map);
+        
+        bounds.extend(loc.coords);
     });
 
-    map.addControl(new maplibregl.NavigationControl(), 'top-right');
-
-    const popup = new maplibregl.Popup({ offset: 25 })
-        .setHTML('<h3>Studio Legale Puliatti</h3><p>Via G. D\'Annunzio n. 111</p>');
-
-    new maplibregl.Marker({ color: '#A73C2A' })
-        .setLngLat([15.085, 37.514])
-        .setPopup(popup)
-        .addTo(map);
+    // Fit map to markers with padding
+    map.fitBounds(bounds, { padding: 100 });
 
     themeToggleBtn.addEventListener('click', () => {
         const isNowDark = body.classList.contains('dark-theme');
