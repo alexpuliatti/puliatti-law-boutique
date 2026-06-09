@@ -189,6 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const map = new maplibregl.Map({
         container: 'map',
         style: isDark ? mapStyleDark : mapStyleLight,
+        center: [12.5, 41.9], // Central Italy initial view
+        zoom: 5,
+        scrollZoom: false
+    });
+
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
     const markers = [
         { name: 'Catania', address: 'Via G. D\'Annunzio n. 111', coords: [15.085, 37.514] },
         { name: 'Roma', address: 'Via di Ripetta n. 22', coords: [12.496, 41.902] },
@@ -210,7 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Fit map to markers with padding
-    map.fitBounds(bounds, { padding: 100 });
+    map.on('load', () => {
+        map.fitBounds(bounds, { padding: 100, maxZoom: 14 });
+    });
 
     themeToggleBtn.addEventListener('click', () => {
         const isNowDark = body.classList.contains('dark-theme');
