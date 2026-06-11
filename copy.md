@@ -3,7 +3,7 @@ Lo Studio Legale Puliatti, fondato nel 1990, si occupa di diritto civile, diritt
 
 DOVE
 
-Catania via G. D’Annunzio n. 111
+Catania Viale Vittorio Veneto n. 227
 
 Studio Allegra Mascheroni Puliatti
 
@@ -35,7 +35,7 @@ DIRITTO CIVILE | DIRITTO AMMINISTRATIVO | DIRITTO DEL LAVORO | DIRITTO SANITARIO
 
 Contatti
 
-Via G. D’Annunzio n. 111 – Catania
+Viale Vittorio Veneto n. 227 – Catania
 
 Apri in Maps
 

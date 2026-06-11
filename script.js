@@ -197,9 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
     const markers = [
-        { name: 'Catania', address: 'Via G. D\'Annunzio n. 111', coords: [15.085, 37.514] },
-        { name: 'Roma', address: 'Via di Ripetta n. 22', coords: [12.496, 41.902] },
-        { name: 'Firenze', address: 'Lungarno Vespucci n. 20', coords: [11.255, 43.769] }
+        { name: 'Catania', address: 'Viale Vittorio Veneto n. 227', coords: [15.0959, 37.5236] },
+        { name: 'Roma', address: 'Via Monte Acero n. 2/a (Studio Bazzani)', coords: [12.5356, 41.9388] },
+        { name: 'Firenze', address: 'Via Ciro Menotti n. 6 (Studio Baldacci)', coords: [11.2748, 43.7656] }
     ];
 
     const bounds = new maplibregl.LngLatBounds();
