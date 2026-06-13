@@ -225,4 +225,54 @@ document.addEventListener('DOMContentLoaded', () => {
         const isNowDark = body.classList.contains('dark-theme');
         map.setStyle(isNowDark ? mapStyleDark : mapStyleLight);
     });
+
+    // ============================================
+    // 5. DEV Palette Switcher
+    // ============================================
+    const PALETTES = ['palette-a', 'palette-b', 'palette-c', 'palette-d', 'palette-e'];
+
+    const devTrigger   = document.getElementById('dev-palette-trigger');
+    const devPanel     = document.getElementById('dev-palette-panel');
+    const devBtns      = document.querySelectorAll('.dev-palette-btn');
+
+    if (devTrigger && devPanel) {
+        // Restore saved palette (default to palette-a which is the current look)
+        const savedPalette = localStorage.getItem('dev-palette') || 'palette-a';
+        applyPalette(savedPalette);
+
+        // Toggle panel
+        devTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            devPanel.classList.toggle('open');
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!devTrigger.contains(e.target) && !devPanel.contains(e.target)) {
+                devPanel.classList.remove('open');
+            }
+        });
+
+        // Palette button clicks
+        devBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const palette = btn.dataset.palette;
+                applyPalette(palette);
+                localStorage.setItem('dev-palette', palette);
+                devPanel.classList.remove('open');
+            });
+        });
+    }
+
+    function applyPalette(palette) {
+        // Remove all palette classes
+        PALETTES.forEach(p => body.classList.remove(p));
+        // Add selected palette
+        body.classList.add(palette);
+
+        // Update active button state
+        document.querySelectorAll('.dev-palette-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.palette === palette);
+        });
+    }
 });

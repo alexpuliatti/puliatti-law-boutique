@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Legale Puliatti</title>
-    <meta name="description" content="Lo Studio Legale Puliatti si occupa di diritto civile, diritto del lavoro e diritto amministrativo, con particolare attenzione al diritto sanitario.">
+    <title>Studio Legale Puliatti — Diritto Sanitario, Civile, Amministrativo</title>
+    <meta name="description" content="Lo Studio Legale Puliatti è una boutique legale specializzata in diritto sanitario, diritto civile, diritto del lavoro e diritto amministrativo, con sedi a Catania, Roma e Firenze.">
     <link rel="icon" href="favicon.png" type="image/png">
     <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-theme">
+<body class="light-theme palette-a">
 
     <!-- Full-screen intro overlay (background only) -->
     <section id="intro" class="intro"></section>
@@ -35,10 +35,11 @@
     <nav class="navbar" id="navbar">
         <div class="logo" id="nav-logo">PULIATTI</div>
         <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
             <li><a href="#studio">LO STUDIO</a></li>
             <li><a href="#attivita">ATTIVITÀ</a></li>
-            <li><a href="#sedi">SEDI</a></li>
+            <li><a href="#team">IL TEAM</a></li>
+            <li><a href="#formazione">FORMAZIONE</a></li>
+            <li><a href="#network">NETWORK</a></li>
             <li><a href="#azioni">AZIONI LEGALI</a></li>
             <li><a href="#contatti">CONTATTI</a></li>
         </ul>
@@ -53,15 +54,52 @@
 
     <main>
 
+        <!-- ============================
+             LO STUDIO
+             ============================ -->
         <section id="studio" class="section reveal">
             <div class="container">
                 <h2 class="section-title">Lo Studio</h2>
-                <div class="content-block">
-                    <p class="large-text">Lo Studio Legale Puliatti, fondato nel 1990, si occupa di diritto civile, diritto del lavoro e diritto amministrativo, con particolare attenzione per tutte le controversie relative al diritto sanitario e della salute anche dinanzi alle Corti superiori.</p>
+                <div class="studio-grid">
+                    <div class="studio-intro">
+                        <p class="large-text">Lo Studio Legale Puliatti, fondato nel 1990, è una <strong>boutique legale</strong> specializzata in diritto civile, diritto del lavoro e diritto amministrativo, con una profonda vocazione nel <strong>diritto sanitario</strong> e nella tutela dei professionisti della salute.</p>
+                        <p class="studio-body">L'approccio dello Studio è selettivo e orientato alla qualità: un numero limitato di mandati, seguiti con attenzione personalizzata e un'analisi giuridica di alto profilo. La struttura opera in rete con le realtà di <em>Allegra Bambara Mascheroni &amp; Puliatti</em>, assicurando competenze integrate su tutto il territorio nazionale.</p>
+                        <div class="studio-pillars">
+                            <div class="pillar">
+                                <span class="pillar-label">DIRITTO CIVILE</span>
+                            </div>
+                            <div class="pillar">
+                                <span class="pillar-label">DIRITTO DEL LAVORO</span>
+                            </div>
+                            <div class="pillar">
+                                <span class="pillar-label">DIRITTO AMMINISTRATIVO</span>
+                            </div>
+                            <div class="pillar pillar-accent">
+                                <span class="pillar-label">DIRITTO SANITARIO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="studio-sidebar">
+                        <div class="studio-stat">
+                            <span class="stat-number">1990</span>
+                            <span class="stat-label">Anno di fondazione</span>
+                        </div>
+                        <div class="studio-stat">
+                            <span class="stat-number">35+</span>
+                            <span class="stat-label">Anni di esperienza</span>
+                        </div>
+                        <div class="studio-stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Sedi operative</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ============================
+             L'AVVOCATO FONDATORE
+             ============================ -->
         <section id="avvocato" class="section reveal">
             <div class="container">
                 <div class="lawyer-grid">
@@ -71,49 +109,299 @@
                     <div class="lawyer-content">
                         <span class="label">FONDATORE</span>
                         <h2 class="section-title no-border">Avv. Antonio Puliatti</h2>
-                        <p class="large-text">Patrocinante dinanzi alle <strong>Corti superiori</strong>, vanta oltre 25 anni di esperienza nel campo del <strong>diritto sanitario</strong>, offrendo assistenza legale d'eccellenza e consulenza strategica di alto profilo.</p>
+                        <p class="large-text">Patrocinante dinanzi alle <strong>Corti superiori</strong>, vanta oltre 35 anni di esperienza nel campo del <strong>diritto sanitario</strong>, offrendo assistenza legale d'eccellenza e consulenza strategica di alto profilo.</p>
+                        <p class="studio-body">Iscritto all'Ordine degli Avvocati di Catania, è consulente di Organizzazioni Sindacali del settore medico e delle strutture sanitarie pubbliche e private. Fornisce assistenza nelle controversie di maggior complessità tecnica, anche dinanzi alla Corte di Cassazione e al Consiglio di Stato.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ============================
+             ATTIVITÀ
+             ============================ -->
         <section id="attivita" class="section reveal">
             <div class="container">
                 <h2 class="section-title">Attività</h2>
-                <div class="grid-4">
-                    <div class="card">
+
+                <!-- Diritto Sanitario — featured card -->
+                <div class="featured-card reveal">
+                    <div class="featured-card-header">
+                        <span class="label">AREA PRINCIPALE</span>
                         <h3>Diritto Sanitario</h3>
-                        <p>Consulenza ed assistenza in diritto tributario in materia di rimborso IRAP. Diritto sindacale, studio delle organizzazioni sindacali, contratto collettivo di lavoro e sciopero, quale consulente di Organizzazioni Sindacali del settore medico.</p>
+                        <p class="featured-intro">Lo Studio si occupa in particolare di tutte le materie attinenti al diritto sanitario: consulenza e controversie relative ai rapporti tra <strong>medici dirigenti e medici convenzionati</strong> con le aziende sanitarie, e — con particolare competenza — della <strong>responsabilità professionale medica</strong>, anche in difesa del medico.</p>
                     </div>
+
+                    <div class="accordion-group">
+
+                        <details class="accordion-item">
+                            <summary class="accordion-trigger">
+                                <span>Responsabilità Professionale Medica</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <div class="accordion-body">
+                                <p>È noto che negli ultimi anni vi è stato un incremento esponenziale delle controversie volte ad individuare una responsabilità professionale del medico. Tuttavia, in maggioranza, tale responsabilità viene esclusa — in particolare nelle controversie penali — grazie a una difesa efficace, attenta e completa.</p>
+                                <p>La <strong>Legge n. 24/2017 (c.d. Legge Gelli)</strong> ha provato a dettare regole certe in materia, ma l'interpretazione giurisprudenziale non appare ancora consolidata.</p>
+                                <div class="law-note">
+                                    <span class="law-note-label">Responsabilità Penale</span>
+                                    <p>Accertata <em>"oltre ogni ragionevole dubbio"</em>, secondo il principio sancito dalla Suprema Corte.</p>
+                                </div>
+                                <div class="law-note">
+                                    <span class="law-note-label">Responsabilità Civile</span>
+                                    <p>Accertata secondo la regola del <em>"più probabile che non"</em>, valutata con riferimento a: regolarità statistica, probabilità dell'evento, verosimiglianza (elevato grado di credibilità razionale).</p>
+                                </div>
+                                <p>La condotta del medico deve essere stata condizione necessaria dell'evento lesivo, con elevato grado di credibilità razionale, ed escludendo l'esistenza di fattori alternativi.</p>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-trigger">
+                                <span>Consenso Informato e Cartella Clinica</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <div class="accordion-body">
+                                <p>La Suprema Corte di Cassazione ha statuito che la violazione del dovere di informare il paziente può causare due distinti tipi di danno:</p>
+                                <ol class="law-list">
+                                    <li><strong>Danno alla salute</strong> — quando sia ragionevole ritenere che il paziente, se correttamente informato, avrebbe evitato l'intervento e le sue conseguenze invalidanti.</li>
+                                    <li><strong>Danno da lesione del diritto all'autodeterminazione</strong> — pregiudizio patrimoniale o non patrimoniale (di apprezzabile gravità) diverso dalla lesione del diritto alla salute.</li>
+                                </ol>
+                                <p>Il medico che opera in una struttura privata, ne sia o meno dipendente, ha sempre il dovere di informare il paziente di eventuali carenze organizzative o strutturali. In mancanza, risponde in solido con la struttura del danno conseguente.</p>
+                                <p>Quanto alla <strong>cartella clinica</strong>, la giurisprudenza di legittimità è costante nel ritenere che la sua difettosa tenuta non esclude il nesso eziologico, consentendo anzi il ricorso alle presunzioni in base al criterio della <em>"vicinanza alla prova"</em>.</p>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-trigger">
+                                <span>Responsabilità delle Strutture Sanitarie</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <div class="accordion-body">
+                                <p>La struttura sanitaria privata conclude con il paziente un <strong>contratto atipico di spedalità</strong> (o di assistenza sanitaria), in virtù del quale si obbliga a fornire una adeguata prestazione sanitaria.</p>
+                                <p>Ne consegue che la clinica è direttamente responsabile nei confronti del paziente per:</p>
+                                <ul class="law-list">
+                                    <li>Deficit organizzativi della struttura;</li>
+                                    <li>Errori del personale medico o paramedico.</li>
+                                </ul>
+                                <p>Tali principi andranno applicati caso per caso, al fine di individuare gli elementi che possano accertare o sollevare il professionista medico da responsabilità, laddove l'evento sia legato alla obiettiva incertezza della scienza medica.</p>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-trigger">
+                                <span>Diritto Sindacale Medico</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <div class="accordion-body">
+                                <p>Lo Studio offre consulenza specializzata in diritto sindacale medico, con particolare riferimento allo studio dei:</p>
+                                <ul class="law-list">
+                                    <li><strong>Contratti Collettivi Nazionali di Lavoro</strong> per la Dirigenza Medica e il Comparto Sanità;</li>
+                                    <li><strong>Accordi Collettivi Nazionali e decentrati</strong> per la Medicina Generale, la Pediatria di Libera Scelta, la Specialistica Ambulatoriale.</li>
+                                </ul>
+                                <p>Lo Studio fornisce consulenza legale a diverse <strong>Organizzazioni Sindacali del settore medico</strong> e Amministrazioni Pubbliche.</p>
+                            </div>
+                        </details>
+
+                    </div>
+                </div>
+
+                <!-- Other 3 practice areas -->
+                <div class="grid-3 reveal">
                     <div class="card">
                         <h3>Diritto Civile</h3>
-                        <p>Giudizi e consulenze relative alla materia dei contratti, delle obbligazioni, dei diritti reali, delle persone, della famiglia e della responsabilità civile. Assistenza per la risoluzione amichevole di liti su diritti disponibili attraverso l'istituto della negoziazione assistita.</p>
+                        <p>Giudizi e consulenze in materia di contratti, obbligazioni, diritti reali, persone, famiglia e responsabilità civile. Lo Studio fornisce altresì assistenza per la risoluzione amichevole delle liti attraverso l'istituto della <strong>negoziazione assistita</strong> (D.L. 12 settembre 2014, L. 162/2014).</p>
                     </div>
                     <div class="card">
                         <h3>Diritto Amministrativo</h3>
-                        <p>Consulenza ed assistenza processuale per conto di privati ed amministrazioni pubbliche, con particolare riferimento al procedimento amministrativo, enti pubblici, contratti, pubblico impiego, oltre all'urbanistica ed edilizia.</p>
+                        <p>Consulenza ed assistenza processuale per conto di privati ed amministrazioni pubbliche, con particolare riferimento a: procedimento amministrativo, enti pubblici, contratti, <strong>pubblico impiego</strong>, urbanistica ed edilizia.</p>
                     </div>
                     <div class="card">
                         <h3>Diritto del Lavoro</h3>
-                        <p>Assistenza completa in materia di diritto del lavoro, contrattualistica, e contenzioso lavorativo.</p>
+                        <p>Assistenza completa in materia di diritto del lavoro: contrattualistica individuale e collettiva, contenzioso lavorativo, licenziamenti, qualifiche, retribuzioni e vertenze sindacali.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================
+             IL TEAM
+             ============================ -->
+        <section id="team" class="section section-alt reveal">
+            <div class="container">
+                <h2 class="section-title">Lo Studio</h2>
+
+                <div class="boutique-grid">
+                    <!-- Founder profile -->
+                    <div class="boutique-profile">
+                        <div class="boutique-image-wrap">
+                            <img src="images/test1.png" alt="Avv. Antonio Puliatti" class="boutique-image">
+                        </div>
+                        <div class="boutique-profile-info">
+                            <span class="label">FONDATORE &amp; TITOLARE</span>
+                            <h3 class="boutique-name">Avv. Antonio Puliatti</h3>
+                            <p class="boutique-role">Patrocinante dinanzi alle Corti Superiori</p>
+                            <p class="boutique-bio">Iscritto all'Ordine degli Avvocati di Catania. Consulente di Organizzazioni Sindacali del settore medico e di Amministrazioni Pubbliche.</p>
+                        </div>
+                    </div>
+
+                    <!-- Boutique values -->
+                    <div class="boutique-values">
+                        <p class="boutique-statement">L'approccio di <strong>boutique legale</strong> si traduce in una cura sartoriale del mandato, in cui l'altissima specializzazione tecnica incontra una dedizione rigorosa e diretta per ciascun cliente.</p>
+
+                        <div class="boutique-value-list">
+                            <div class="boutique-value">
+                                <span class="boutique-value-mark">—</span>
+                                <div>
+                                    <strong>Mandati selezionati</strong>
+                                    <p>Ogni caso riceve attenzione diretta e personalizzata del titolare dello Studio.</p>
+                                </div>
+                            </div>
+                            <div class="boutique-value">
+                                <span class="boutique-value-mark">—</span>
+                                <div>
+                                    <strong>Competenza verticale</strong>
+                                    <p>Specializzazione profonda nel diritto sanitario, sviluppata in oltre 35 anni di pratica.</p>
+                                </div>
+                            </div>
+                            <div class="boutique-value">
+                                <span class="boutique-value-mark">—</span>
+                                <div>
+                                    <strong>Rete di collaboratori</strong>
+                                    <p>Lo Studio si avvale di un gruppo selezionato di professionisti con competenze complementari, garantendo un approccio multidisciplinare.</p>
+                                </div>
+                            </div>
+                            <div class="boutique-value">
+                                <span class="boutique-value-mark">—</span>
+                                <div>
+                                    <strong>Copertura nazionale</strong>
+                                    <p>Presenze operative a Catania, Roma e Firenze, con connessioni nel network <em>Allegra Bambara Mascheroni &amp; Puliatti</em>.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="sedi" class="section reveal">
+
+
+
+        <!-- ============================
+             FORMAZIONE
+             ============================ -->
+        <section id="formazione" class="section reveal">
+            <div class="container">
+                <div class="formazione-grid">
+                    <div class="formazione-content">
+                        <span class="label">CORSI SPECIALIZZATI</span>
+                        <h2 class="section-title no-border">Formazione Sindacale</h2>
+                        <p class="large-text">Lo Studio organizza <strong>Corsi di Formazione per Quadri Sindacali</strong> nel settore della sanità.</p>
+                        <p class="studio-body">L'obiettivo fondamentale del corso è fornire ai giovani quadri sindacali gli strumenti conoscitivi necessari per comprendere e divulgare la normativa giuridica, sindacale e contrattuale vigente. Attraverso un approccio pratico e autorevole, ogni partecipante acquisirà gli elementi utili per operare con consapevolezza nella complessa realtà sindacale e professionale odierna.</p>
+                        <a href="mailto:segreteria@studiolegalepuliatti.com?subject=Richiesta informazioni corso formazione sindacale" class="btn" id="formazione-cta">Richiedi Informazioni</a>
+                    </div>
+                    <div class="formazione-details">
+                        <div class="formazione-feature">
+                            <div class="formazione-icon">
+                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="6" y="8" width="36" height="28" rx="2"/>
+                                    <path d="M16 36v4M32 36v4M12 40h24"/>
+                                    <path d="M14 18h20M14 24h14"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Normativa Contrattuale</h4>
+                                <p>CCNL Dirigenza Medica, ACN Medicina Generale, Specialistica Ambulatoriale e Pediatria di Libera Scelta.</p>
+                            </div>
+                        </div>
+                        <div class="formazione-feature">
+                            <div class="formazione-icon">
+                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="24" cy="24" r="18"/>
+                                    <path d="M24 14v10l6 6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Diritto Sindacale</h4>
+                                <p>Organizzazioni sindacali, contratti collettivi, sciopero e rappresentanza nei tavoli negoziali.</p>
+                            </div>
+                        </div>
+                        <div class="formazione-feature">
+                            <div class="formazione-icon">
+                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M24 6L6 18v24h12V30h12v12h12V18L24 6z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Approccio Pratico</h4>
+                                <p>Metodologia orientata alla realtà professionale, con casi concreti e simulazioni negoziali.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             NETWORK & PARTNERSHIP
+             ============================ -->
+        <section id="network" class="section section-alt reveal">
+            <div class="container">
+                <h2 class="section-title">Network &amp; Partnership</h2>
+                <p class="studio-body network-intro">Lo Studio Legale Puliatti opera in rete con realtà complementari, garantendo ai propri clienti una copertura giuridica integrata su scala nazionale.</p>
+
+                <div class="network-grid">
+                    <div class="network-card">
+                        <div class="network-logo-text">ABM&P</div>
+                        <div class="network-info">
+                            <span class="label">LEGAL COMMUNITY — PARTNER E FONDATORE</span>
+                            <h3>Allegra Bambara Mascheroni &amp; Puliatti</h3>
+                            <p>Una community legale fondata da professionisti complementari che condividono valori di eccellenza, indipendenza e orientamento al cliente. Lo Studio Legale Puliatti è socio fondatore.</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             AZIONI LEGALI
+             ============================ -->
+        <section id="azioni" class="section reveal">
+            <div class="container">
+                <h2 class="section-title">Azioni Legali</h2>
+                <div class="content-block">
+                    <span class="label">CONTENZIOSO SPECIALISTICO</span>
+                    <h3 class="azioni-title">Risarcimento Medici Specialisti 1983–1991</h3>
+                    <p>Questo Studio si è occupato di diverse azioni giudiziarie volte ad ottenere il risarcimento dei danni in favore dei medici che hanno frequentato le scuole di specializzazione negli anni dal 1976 al 1991 in violazione delle direttive comunitarie. Molti medici che hanno promosso dette azioni hanno già ricevuto le somme previste in sentenza.</p>
+                    <p>La <strong>Corte di Cassazione a Sezioni Unite</strong> si è pronunciata con sentenza n. 9147/2009, qualificando la fattispecie come "responsabilità per inadempimento di una obbligazione <em>ex lege</em> dello Stato, di natura indennitaria per attività non antigiuridica", con termine di prescrizione decennale. A essa sono seguite sentenze che hanno individuato la decorrenza della prescrizione dall'entrata in vigore della L. 370/99.</p>
+                    <p>Il risarcimento è stato parametrato sugli importi previsti dalla Legge 370/1999, pari a <strong>€ 6.713,94 per ogni anno di frequenza</strong>. Un recente <em>revirement</em> giurisprudenziale ha esteso il diritto anche agli iscritti dall'anno accademico 1976; la questione è stata rimessa alle Sezioni Unite.</p>
+                    <p>Esistono inoltre diverse proposte di legge volte a riconoscere il dovuto risarcimento a quanti hanno promosso e hanno in corso un'azione giudiziaria — una via che potrebbe dare concreta attuazione alla direttiva violata in favore di quanti avranno pendente un'azione.</p>
+                    <a href="mailto:segreteria@studiolegalepuliatti.com?subject=Richiesta assistenza medici specialisti 1983-1991" class="btn" id="azioni-cta">Richiedi Assistenza</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             SEDI
+             ============================ -->
+        <section id="sedi" class="section section-alt reveal">
             <div class="container">
                 <h2 class="section-title">Sedi</h2>
-                <div class="grid-4">
-                    <div class="card">
+                <div class="sedi-grid">
+                    <div class="sede-card sede-card--primary">
+                        <span class="label">SEDE PRINCIPALE</span>
                         <h3>Catania</h3>
                         <p>Viale Vittorio Veneto n. 227<br>95127 Catania</p>
+                        <a href="https://maps.google.com/?q=Viale+Vittorio+Veneto+227+Catania" target="_blank" rel="noopener" class="sede-link">Apri in Maps →</a>
                     </div>
-                    <div class="card">
+                    <div class="sede-card">
+                        <span class="label">SEDE OPERATIVA</span>
                         <h3>Roma</h3>
                         <p>Via Monte Acero n. 2/a<br>Studio Bazzani<br>00141 Roma</p>
                     </div>
-                    <div class="card">
+                    <div class="sede-card">
+                        <span class="label">SEDE OPERATIVA</span>
                         <h3>Firenze</h3>
                         <p>Via Ciro Menotti n. 6<br>Studio Baldacci<br>50136 Firenze</p>
                     </div>
@@ -121,32 +409,38 @@
             </div>
         </section>
 
-        <section id="azioni" class="section reveal">
-            <div class="container">
-                <h2 class="section-title">Azioni Legali</h2>
-                <div class="content-block">
-                    <h3>Azioni medici specialisti 83_91</h3>
-                    <p>Questo studio si è occupato di diverse azioni giudiziarie volte ad ottenere il risarcimento dei danni in favore dei medici che hanno frequentato le scuole di specializzazione negli anni dal 1976 al 1991. Molti medici che hanno promosso dette azioni hanno già ricevuto le somme previste in sentenza.</p>
-                    <p>Dopo alterni esiti delle controversie, la Corte di Cassazione si è pronunciata a Sezioni Unite con la sentenza n. 9147/2009. Rimane chiaramente difficoltoso conseguire il risultato auspicato per quanti non abbiano mai in passato avviato una azione o interrotto i termini di prescrizione.</p>
-                    <a href="mailto:segreteria@studiolegalepuliatti.com" class="btn">Richiedi Assistenza</a>
-                </div>
-            </div>
-        </section>
-
+        <!-- ============================
+             CONTATTI
+             ============================ -->
         <section id="contatti" class="section reveal">
             <div class="container">
                 <h2 class="section-title">Contatti</h2>
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h3>Sede</h3>
-                        <p>Viale Vittorio Veneto n. 227<br>Catania, 95127</p>
-                        <p class="network">Studio Allegra Mascheroni Puliatti</p>
+                        <h3>Sedi</h3>
+                        
+                        <div class="contact-sede">
+                            <h4 class="contact-sede-title">Catania <span class="label-mini">Sede Principale</span></h4>
+                            <p>Viale Vittorio Veneto n. 227 — 95127 Catania</p>
+                        </div>
+                        
+                        <div class="contact-sede">
+                            <h4 class="contact-sede-title">Roma <span class="label-mini">Sede Operativa</span></h4>
+                            <p>Via Monte Acero n. 2/a (c/o Studio Bazzani) — 00141 Roma</p>
+                        </div>
+                        
+                        <div class="contact-sede">
+                            <h4 class="contact-sede-title">Firenze <span class="label-mini">Sede Operativa</span></h4>
+                            <p>Via Ciro Menotti n. 6 (c/o Studio Baldacci) — 50136 Firenze</p>
+                        </div>
+
+                        <p class="network">Allegra Bambara Mascheroni &amp; Puliatti</p>
                     </div>
                     <div class="contact-details">
                         <h3>Recapiti</h3>
-                        <p>Tel: 095 931944</p>
-                        <p>Email: segreteria@studiolegalepuliatti.com</p>
-                        <a href="https://maps.google.com/?q=Viale+Vittorio+Veneto+227+Catania" target="_blank" class="btn outline">Apri in Maps</a>
+                        <p>Tel: <a href="tel:+390959311944">095 931944</a></p>
+                        <p>Email: <a href="mailto:segreteria@studiolegalepuliatti.com">segreteria@studiolegalepuliatti.com</a></p>
+                        <a href="https://maps.google.com/?q=Viale+Vittorio+Veneto+227+Catania" target="_blank" rel="noopener" class="btn outline" id="maps-btn">Apri in Maps (Catania)</a>
                     </div>
                 </div>
                 <div id="map" class="map-container"></div>
@@ -156,10 +450,78 @@
 
     <footer>
         <div class="container">
-            <p>Responsabile del sito avv. Antonio Puliatti Iscritto all'Ordine degli Avvocati di Catania.</p>
+            <p>Responsabile del sito avv. Antonio Puliatti — Iscritto all'Ordine degli Avvocati di Catania.</p>
             <p>Polizza professionale UnipolSai n. 1/39105/122/170602929/1</p>
         </div>
     </footer>
+
+    <!-- DEV ONLY: Palette Switcher -->
+    <div id="dev-palette-switcher">
+        <div id="dev-palette-panel" role="menu" aria-label="Palette switcher">
+            <div class="dev-palette-label">Palette Preview</div>
+
+            <button class="dev-palette-btn active" data-palette="palette-a" role="menuitem">
+                <div class="dev-palette-swatches">
+                    <div class="dev-swatch" style="background:#233884"></div>
+                    <div class="dev-swatch" style="background:#A73C2A"></div>
+                    <div class="dev-swatch" style="background:#E6E9E5"></div>
+                </div>
+                <div class="dev-palette-info">
+                    <div class="dev-palette-name">A — Institutional</div>
+                    <div class="dev-palette-desc">Navy + Terracotta</div>
+                </div>
+            </button>
+
+            <button class="dev-palette-btn" data-palette="palette-b" role="menuitem">
+                <div class="dev-palette-swatches">
+                    <div class="dev-swatch" style="background:#1A4D2E"></div>
+                    <div class="dev-swatch" style="background:#C8A45A"></div>
+                    <div class="dev-swatch" style="background:#F0F4EF"></div>
+                </div>
+                <div class="dev-palette-info">
+                    <div class="dev-palette-name">B — Midnight Emerald</div>
+                    <div class="dev-palette-desc">Forest Green + Champagne</div>
+                </div>
+            </button>
+
+            <button class="dev-palette-btn" data-palette="palette-c" role="menuitem">
+                <div class="dev-palette-swatches">
+                    <div class="dev-swatch" style="background:#3D1F8C"></div>
+                    <div class="dev-swatch" style="background:#E07B00"></div>
+                    <div class="dev-swatch" style="background:#F3F1FA"></div>
+                </div>
+                <div class="dev-palette-info">
+                    <div class="dev-palette-name">C — Cosmic Violet</div>
+                    <div class="dev-palette-desc">Indigo + Electric Amber</div>
+                </div>
+            </button>
+
+            <button class="dev-palette-btn" data-palette="palette-d" role="menuitem">
+                <div class="dev-palette-swatches">
+                    <div class="dev-swatch" style="background:#1A0A0A"></div>
+                    <div class="dev-swatch" style="background:#C0607A"></div>
+                    <div class="dev-swatch" style="background:#FAF4F4"></div>
+                </div>
+                <div class="dev-palette-info">
+                    <div class="dev-palette-name">D — Rose Noir</div>
+                    <div class="dev-palette-desc">Near-Black + Dusty Rose</div>
+                </div>
+            </button>
+
+            <button class="dev-palette-btn" data-palette="palette-e" role="menuitem">
+                <div class="dev-palette-swatches">
+                    <div class="dev-swatch" style="background:#1433CC"></div>
+                    <div class="dev-swatch" style="background:#FF4520"></div>
+                    <div class="dev-swatch" style="background:#F0F4FF"></div>
+                </div>
+                <div class="dev-palette-info">
+                    <div class="dev-palette-name">E — Electric Ink</div>
+                    <div class="dev-palette-desc">Vivid Cobalt + Hot Coral</div>
+                </div>
+            </button>
+        </div>
+        <button id="dev-palette-trigger" aria-label="Toggle palette switcher" title="Dev: Switch palette">🎨</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
