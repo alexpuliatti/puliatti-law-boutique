@@ -1,5 +1,5 @@
 :root {
-    /* Base Palette */
+    /* Base Palette - Reverted to Original */
     --c-blue: #233884;
     --c-red: #A73C2A;
     --c-black: #101820;
@@ -16,6 +16,13 @@
     --highlight: var(--c-red);
     --border: rgba(16, 24, 32, 0.1);
 
+    /* Default Gradients (Matching Palette A Light) */
+    --bg-gradient: linear-gradient(180deg, #F2F4F1 0%, #E6E9E5 100%);
+    --intro-gradient: linear-gradient(135deg, #C2BCAC 0%, #E6E9E5 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(214, 210, 196, 0.2) 100%);
+    --text-gradient: linear-gradient(135deg, #101820 30%, #233884 100%);
+    --accent-gradient: linear-gradient(135deg, #233884 0%, #3d59c9 100%);
+
     /* Custom easing curves — much stronger than CSS defaults */
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -30,10 +37,17 @@
     --accent: var(--c-blue);
     --highlight: var(--c-red);
     --border: rgba(230, 233, 229, 0.1);
+
+    /* Default Gradients (Matching Palette A Dark) */
+    --bg-gradient: linear-gradient(180deg, #16202b 0%, #101820 100%);
+    --intro-gradient: linear-gradient(135deg, #605D54 0%, #101820 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --text-gradient: linear-gradient(135deg, #E6E9E5 30%, #516dc9 100%);
+    --accent-gradient: linear-gradient(135deg, #233884 0%, #465fbc 100%);
 }
 
 /* ============================================
-   PALETTE A — Institutional (current default)
+   PALETTE A — Institutional (default)
    Deep Navy + Terracotta Red
    ============================================ */
 .palette-a {
@@ -52,6 +66,12 @@
     --accent: #233884;
     --highlight: #A73C2A;
     --border: rgba(16, 24, 32, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #F2F4F1 0%, #E6E9E5 100%);
+    --intro-gradient: linear-gradient(135deg, #C2BCAC 0%, #E6E9E5 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(214, 210, 196, 0.2) 100%);
+    --text-gradient: linear-gradient(135deg, #101820 30%, #233884 100%);
+    --accent-gradient: linear-gradient(135deg, #233884 0%, #3d59c9 100%);
 }
 .palette-a.dark-theme {
     --bg-main: #101820;
@@ -62,6 +82,12 @@
     --accent: #233884;
     --highlight: #A73C2A;
     --border: rgba(230, 233, 229, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #16202b 0%, #101820 100%);
+    --intro-gradient: linear-gradient(135deg, #605D54 0%, #101820 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --text-gradient: linear-gradient(135deg, #E6E9E5 30%, #516dc9 100%);
+    --accent-gradient: linear-gradient(135deg, #233884 0%, #465fbc 100%);
 }
 
 /* ============================================
@@ -77,6 +103,12 @@
     --accent: #1A4D2E;
     --highlight: #C8A45A;
     --border: rgba(13, 31, 15, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #FAFDF9 0%, #F0F4EF 100%);
+    --intro-gradient: linear-gradient(135deg, #C2D5C0 0%, #F0F4EF 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(216, 228, 214, 0.2) 100%);
+    --text-gradient: linear-gradient(135deg, #0D1F0F 30%, #1A4D2E 100%);
+    --accent-gradient: linear-gradient(135deg, #1A4D2E 0%, #2f7e4c 100%);
 }
 .palette-b.dark-theme {
     --bg-main: #0B1A0D;
@@ -87,6 +119,12 @@
     --accent: #4BA86A;
     --highlight: #E2C07A;
     --border: rgba(238, 244, 236, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #122815 0%, #0B1A0D 100%);
+    --intro-gradient: linear-gradient(135deg, #4A6E4F 0%, #0B1A0D 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --text-gradient: linear-gradient(135deg, #EEF4EC 30%, #C8A45A 100%);
+    --accent-gradient: linear-gradient(135deg, #4BA86A 0%, #76d395 100%);
 }
 
 /* ============================================
@@ -102,6 +140,12 @@
     --accent: #3D1F8C;
     --highlight: #E07B00;
     --border: rgba(21, 15, 46, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #FAF9FD 0%, #F3F1FA 100%);
+    --intro-gradient: linear-gradient(135deg, #D4CAEC 0%, #F3F1FA 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(225, 220, 239, 0.2) 100%);
+    --text-gradient: linear-gradient(135deg, #150F2E 30%, #3D1F8C 100%);
+    --accent-gradient: linear-gradient(135deg, #3D1F8C 0%, #603bb9 100%);
 }
 .palette-c.dark-theme {
     --bg-main: #0E0820;
@@ -112,6 +156,12 @@
     --accent: #7C5CE4;
     --highlight: #F5A623;
     --border: rgba(234, 230, 250, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #170e30 0%, #0E0820 100%);
+    --intro-gradient: linear-gradient(135deg, #4E3B87 0%, #0E0820 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --text-gradient: linear-gradient(135deg, #EAE6FA 30%, #9B90CC 100%);
+    --accent-gradient: linear-gradient(135deg, #7C5CE4 0%, #9e85ef 100%);
 }
 
 /* ============================================
@@ -127,6 +177,12 @@
     --accent: #1A0A0A;
     --highlight: #C0607A;
     --border: rgba(26, 10, 10, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #FCF9F9 0%, #FAF4F4 100%);
+    --intro-gradient: linear-gradient(135deg, #ECC8C8 0%, #FAF4F4 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(240, 220, 220, 0.2) 100%);
+    --text-gradient: linear-gradient(135deg, #1A0A0A 30%, #C0607A 100%);
+    --accent-gradient: linear-gradient(135deg, #1A0A0A 0%, #3e1b1b 100%);
 }
 .palette-d.dark-theme {
     --bg-main: #120808;
@@ -137,6 +193,12 @@
     --accent: #E8A0B4;
     --highlight: #E07090;
     --border: rgba(250, 244, 244, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #1E0F0F 0%, #120808 100%);
+    --intro-gradient: linear-gradient(135deg, #5C2D3A 0%, #120808 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --text-gradient: linear-gradient(135deg, #FAF4F4 30%, #E8A0B4 100%);
+    --accent-gradient: linear-gradient(135deg, #E8A0B4 0%, #f3c2ce 100%);
 }
 
 /* ============================================
@@ -152,6 +214,12 @@
     --accent: #1433CC;
     --highlight: #FF4520;
     --border: rgba(8, 12, 32, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #F7FAFF 0%, #F0F4FF 100%);
+    --intro-gradient: linear-gradient(135deg, #C2D5FF 0%, #F0F4FF 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(216, 226, 255, 0.2) 100%);
+    --text-gradient: linear-gradient(135deg, #080C20 30%, #1433CC 100%);
+    --accent-gradient: linear-gradient(135deg, #1433CC 0%, #3c5be6 100%);
 }
 .palette-e.dark-theme {
     --bg-main: #050912;
@@ -162,6 +230,12 @@
     --accent: #4D6AFF;
     --highlight: #FF5533;
     --border: rgba(237, 240, 255, 0.1);
+
+    --bg-gradient: linear-gradient(180deg, #0A1224 0%, #050912 100%);
+    --intro-gradient: linear-gradient(135deg, #253966 0%, #050912 100%);
+    --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --text-gradient: linear-gradient(135deg, #EDF0FF 30%, #7B8CCC 100%);
+    --accent-gradient: linear-gradient(135deg, #4D6AFF 0%, #7aa0ff 100%);
 }
 
 @font-face {
@@ -231,9 +305,9 @@ a {
     align-items: center;
     justify-content: center;
     z-index: 2000;
-    background-color: var(--bg-main);
+    background: var(--bg-main);
     pointer-events: auto;
-    transition: background-color 0.4s ease;
+    transition: background 0.4s ease, background-color 0.4s ease;
 }
 
 /* When scrolled past, let clicks through to content beneath */
@@ -594,7 +668,7 @@ a {
     padding: 2.5rem;
     border: 1px solid var(--border);
     /* Only animate what changes — never use transition: all */
-    transition: transform 350ms var(--ease-out), border-color 250ms ease;
+    transition: transform 350ms var(--ease-out), border-color 250ms ease, background-color 250ms ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -686,8 +760,8 @@ a {
 }
 
 .btn:active {
-    /* No !important needed — transition already declared on .btn */
-    transform: scale(0.97);
+    /* Translate override to tactilely press down from hover elevation */
+    transform: translateY(0) scale(0.97);
 }
 
 .btn.outline {
@@ -695,6 +769,38 @@ a {
     border: 1px solid var(--accent);
     color: var(--text-main);
     /* Inherits transition from .btn */
+}
+
+/* Sliding double-arrow button style */
+.btn-slide {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    text-align: left;
+}
+
+.btn-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.btn-icon-slide {
+    display: flex;
+    width: 32px;
+    height: 16px;
+    transform: translateX(0);
+    transition: transform 250ms var(--ease-out);
+}
+
+.btn-icon-slide svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -707,6 +813,10 @@ a {
     .btn.outline:hover {
         background-color: var(--accent);
         color: #E6E9E5;
+    }
+
+    .btn-slide:hover .btn-icon-slide {
+        transform: translateX(-16px);
     }
 }
 
@@ -867,16 +977,26 @@ footer {
 }
 
 .studio-pillars {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
     margin-top: 2.5rem;
 }
 
 .pillar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     border: 1px solid var(--border);
-    padding: 0.5rem 1.25rem;
-    transition: border-color 0.3s ease, background 0.3s ease;
+    padding: 0.85rem 1.25rem;
+    min-height: 3.2rem;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 160ms var(--ease-out);
+    cursor: pointer;
+}
+
+.pillar:active {
+    transform: scale(0.975);
 }
 
 .pillar-accent {
@@ -893,6 +1013,13 @@ footer {
     letter-spacing: 0.14em;
     color: var(--text-muted);
     text-transform: uppercase;
+    line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+    .studio-pillars {
+        grid-template-columns: 1fr;
+    }
 }
 
 .studio-sidebar {
@@ -945,6 +1072,7 @@ footer {
    FEATURED CARD (Diritto Sanitario)
    ============================================ */
 .featured-card {
+    background: var(--bg-main);
     border: 1px solid var(--border);
     margin-bottom: 3rem;
     overflow: hidden;
@@ -996,8 +1124,12 @@ footer {
     font-family: 'Arrow', serif;
     font-size: 1.2rem;
     color: var(--text-main);
-    transition: color 0.3s ease, background 0.3s ease;
+    transition: color 0.3s ease, background 0.3s ease, transform 160ms var(--ease-out);
     user-select: none;
+}
+
+.accordion-trigger:active {
+    transform: scale(0.985);
 }
 
 .accordion-trigger::-webkit-details-marker {
@@ -1687,4 +1819,119 @@ details[open] > .accordion-trigger {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* ============================================
+   POLICY SUBPAGES STYLING
+   ============================================ */
+.container--narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.policy-main {
+    padding: 8rem 0 6rem;
+    background: var(--bg-main);
+    min-height: 70vh;
+}
+
+.policy-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.policy-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.policy-content {
+    font-family: 'Geist', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-main);
+}
+
+.policy-content p {
+    margin-bottom: 1.5rem;
+}
+
+.policy-content h2 {
+    font-family: 'Arrow', serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin: 3rem 0 1.25rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.policy-content h3 {
+    font-family: 'Arrow', serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 2.25rem 0 1rem;
+    color: var(--text-main);
+}
+
+.policy-content ul, 
+.policy-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.policy-content li {
+    margin-bottom: 0.5rem;
+}
+
+.policy-content strong {
+    color: var(--text-main);
+}
+
+/* Footer Compliance Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+
+.footer-links a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent);
+    transition: width 200ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .footer-links a:hover {
+        color: var(--accent);
+    }
+    
+    .footer-links a:hover::after {
+        width: 100%;
+    }
 }
