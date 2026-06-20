@@ -82,9 +82,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function handleScroll() {
             const scrollY = window.scrollY;
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                // Mobile layout - fast fadeout within 120px scroll
+                if (scrollY <= 0) {
+                    intro.style.opacity = '1';
+                    introLogoGroup.style.pointerEvents = 'auto';
+                    introPuliatti.style.transform = 'none';
+                    introPuliatti.style.opacity = '1';
+                    introSubtitle.style.opacity = '1';
+                    introArrow.style.opacity = '1';
+                    navbar.classList.remove('visible');
+                    return;
+                }
+
+                const fadeProgress = Math.min(scrollY / 120, 1);
+                intro.style.opacity = String(1 - fadeProgress);
+                introPuliatti.style.opacity = String(1 - fadeProgress);
+                introSubtitle.style.opacity = String(1 - fadeProgress);
+                introArrow.style.opacity = String(1 - fadeProgress);
+
+                // Slide elements up slightly while fading out
+                introLogoGroup.style.transform = `translateY(${-fadeProgress * 15}px)`;
+
+                if (scrollY >= 80) {
+                    navbar.classList.add('visible');
+                    introLogoGroup.style.pointerEvents = 'none';
+                } else {
+                    navbar.classList.remove('visible');
+                    introLogoGroup.style.pointerEvents = 'auto';
+                }
+                return;
+            }
+
+            // --- Desktop Layout (Interpolation Logic) ---
             const progress = Math.min(scrollY / TRANSITION_DISTANCE, 1);
 
-            // --- INTRO & LOGO HANDOFF ---
+            // Ensure introLogoGroup transforms are reset if resized from mobile
+            introLogoGroup.style.transform = 'none';
+
             if (progress <= 0) {
                 intro.style.opacity = '1';
                 introLogoGroup.style.pointerEvents = 'auto';
@@ -211,50 +248,59 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // 4. Map Initialization
     // ============================================
-    const mapStyleDark = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
-    const mapStyleLight = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
-    
-    const isDark = body.classList.contains('dark-theme');
-
-    const map = new maplibregl.Map({
-        container: 'map',
-        style: isDark ? mapStyleDark : mapStyleLight,
-        center: [12.5, 41.9], // Central Italy initial view
-        zoom: 5,
-        scrollZoom: false
-    });
-
-    map.addControl(new maplibregl.NavigationControl(), 'top-right');
-
-    const markers = [
-        { name: 'Catania', address: 'Viale Vittorio Veneto n. 227', coords: [15.0959, 37.5236] },
-        { name: 'Roma', address: 'Via Monte Acero n. 2/a (Studio Bazzani)', coords: [12.5356, 41.9388] },
-        { name: 'Firenze', address: 'Via Ciro Menotti n. 6 (Studio Baldacci)', coords: [11.2748, 43.7656] }
-    ];
-
-    const bounds = new maplibregl.LngLatBounds();
-
-    markers.forEach(loc => {
-        const popup = new maplibregl.Popup({ offset: 25 })
-            .setHTML(`<h3>${loc.name}</h3><p>${loc.address}</p>`);
-
-        new maplibregl.Marker({ color: '#A73C2A' })
-            .setLngLat(loc.coords)
-            .setPopup(popup)
-            .addTo(map);
+    const mapContainer = document.getElementById('map');
+    if (mapContainer && typeof maplibregl !== 'undefined') {
+        const mapStyleDark = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+        const mapStyleLight = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
         
-        bounds.extend(loc.coords);
-    });
+        const isDark = body.classList.contains('dark-theme');
 
-    // Fit map to markers with padding
-    map.on('load', () => {
-        map.fitBounds(bounds, { padding: 100, maxZoom: 14 });
-    });
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: isDark ? mapStyleDark : mapStyleLight,
+            center: [12.5, 41.9], // Central Italy initial view
+            zoom: 5,
+            scrollZoom: false
+        });
 
-    themeToggleBtn.addEventListener('click', () => {
-        const isNowDark = body.classList.contains('dark-theme');
-        map.setStyle(isNowDark ? mapStyleDark : mapStyleLight);
-    });
+        map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+        const markers = [
+            { name: 'Catania', address: 'Viale Vittorio Veneto n. 227', coords: [15.0959, 37.5236] },
+            { name: 'Roma', address: 'Via Monte Acero n. 2/a (Studio Bazzani)', coords: [12.5356, 41.9388] },
+            { name: 'Firenze', address: 'Via Ciro Menotti n. 6 (Studio Baldacci)', coords: [11.2748, 43.7656] }
+        ];
+
+        const bounds = new maplibregl.LngLatBounds();
+
+        markers.forEach(loc => {
+            const popup = new maplibregl.Popup({ offset: 25 })
+                .setHTML(`<h3>${loc.name}</h3><p>${loc.address}</p>`);
+
+            const marker = new maplibregl.Marker({ color: '#A73C2A' })
+                .setLngLat(loc.coords)
+                .setPopup(popup)
+                .addTo(map);
+
+            const markerEl = marker.getElement();
+            if (markerEl) {
+                markerEl.setAttribute('role', 'button');
+                markerEl.setAttribute('aria-label', `Mappa di ${loc.name}`);
+            }
+            
+            bounds.extend(loc.coords);
+        });
+
+        // Fit map to markers with padding
+        map.on('load', () => {
+            map.fitBounds(bounds, { padding: 100, maxZoom: 14 });
+        });
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isNowDark = body.classList.contains('dark-theme');
+            map.setStyle(isNowDark ? mapStyleDark : mapStyleLight);
+        });
+    }
 
     // ============================================
     // 5. DEV Palette Switcher
@@ -304,5 +350,64 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.dev-palette-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.palette === palette);
         });
+    }
+
+    // ============================================
+    // 6. Mobile Menu Toggle & Drawer Management
+    // ============================================
+    const menuToggleBtn = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggleBtn && navLinks) {
+        menuToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu on link clicks (anchor navigation)
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Close menu on clicking outside the drawer
+        document.addEventListener('click', (e) => {
+            const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+            if (isExpanded && !navLinks.contains(e.target) && !menuToggleBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on resize to desktop sizes
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+                if (isExpanded) {
+                    closeMobileMenu();
+                }
+            }
+        });
+    }
+
+    function openMobileMenu() {
+        menuToggleBtn.setAttribute('aria-expanded', 'true');
+        menuToggleBtn.setAttribute('aria-label', 'Chiudi menu');
+        navLinks.classList.add('active');
+        body.classList.add('menu-open');
+    }
+
+    function closeMobileMenu() {
+        menuToggleBtn.setAttribute('aria-expanded', 'false');
+        menuToggleBtn.setAttribute('aria-label', 'Apri menu');
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-open');
     }
 });
