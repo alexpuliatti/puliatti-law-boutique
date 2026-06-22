@@ -165,65 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Combined Scroll Management (Intro Transition + Dynamic Blur)
-        let blurTimeout;
-        let isScrolling = false;
-
+        // Combined Scroll Management (Intro Transition)
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 requestAnimationFrame(() => {
                     handleScroll();
-                    
-                    // Only update blur style if we've just started scrolling
-                    if (!isScrolling) {
-                        navbar.style.backdropFilter = "blur(8px)";
-                        navbar.style.webkitBackdropFilter = "blur(8px)";
-                        isScrolling = true;
-                    }
-
                     ticking = false;
                 });
                 ticking = true;
             }
-
-            clearTimeout(blurTimeout);
-            blurTimeout = setTimeout(() => {
-                navbar.style.backdropFilter = "blur(24px)";
-                navbar.style.webkitBackdropFilter = "blur(24px)";
-                isScrolling = false;
-            }, 150);
         }, { passive: true });
 
         // Run once on load in case the page loads mid-scroll
         handleScroll();
-    } else {
-        // Subpage scroll blur management
-        let ticking = false;
-        let blurTimeout;
-        let isScrolling = false;
-
-        if (navbar) {
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        if (!isScrolling) {
-                            navbar.style.backdropFilter = "blur(8px)";
-                            navbar.style.webkitBackdropFilter = "blur(8px)";
-                            isScrolling = true;
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-
-                clearTimeout(blurTimeout);
-                blurTimeout = setTimeout(() => {
-                    navbar.style.backdropFilter = "blur(24px)";
-                    navbar.style.webkitBackdropFilter = "blur(24px)";
-                    isScrolling = false;
-                }, 150);
-            }, { passive: true });
-        }
     }
 
     // ============================================

@@ -409,9 +409,9 @@ a {
     background: rgba(var(--bg-rgb), 0.5); /* Reduced opacity for better blur visibility */
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    will-change: backdrop-filter, transform; /* Hardware acceleration hint */
+    will-change: transform, opacity; /* Hardware acceleration hint */
     box-shadow: 0 1px 0 var(--border);
-    transition: background 0.4s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+    transition: background 0.4s ease, transform 0.3s ease, opacity 0.3s ease;
 
     /* Start hidden — animated in via JS */
     opacity: 0;
