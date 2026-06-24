@@ -24,6 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
+    // 1b. Smooth Scroll for Anchor Links (JS-only, avoids CSS scroll-behavior lag)
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // ============================================
     // 2. Intro → Navbar Scroll Transition (Interpolation Logic)
     // ============================================
     const intro = document.getElementById('intro');

@@ -261,7 +261,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     font-size: 16px;
 }
 
@@ -307,6 +306,7 @@ a {
     z-index: 2000;
     background: var(--bg-main);
     pointer-events: auto;
+    transform: translateZ(0); /* GPU layer promotion — makes opacity changes compositor-only */
     transition: background 0.4s ease, background-color 0.4s ease;
 }
 
@@ -347,7 +347,6 @@ a {
     justify-content: space-between; /* Anchor to opposite margins */
     width: 100%; /* Fill the width of the parent (PULIATTI) */
     margin-top: 1.25rem;
-    will-change: opacity, transform;
 }
 
 .intro-studio,
@@ -367,7 +366,6 @@ a {
     transform: translateX(-50%);
     color: var(--text-muted);
     animation: arrowBounce 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-    will-change: transform;
     cursor: pointer;
     pointer-events: auto;
     transition: color 0.3s ease;
@@ -407,9 +405,8 @@ a {
     padding: 1.25rem 3rem;
     z-index: 1000;
     background: rgba(var(--bg-rgb), 0.5); /* Reduced opacity for better blur visibility */
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    will-change: transform, opacity; /* Hardware acceleration hint */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 var(--border);
     transition: background 0.4s ease, transform 0.3s ease, opacity 0.3s ease;
 
@@ -563,6 +560,8 @@ body.menu-open {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
 }
 
 .container {
