@@ -340,6 +340,7 @@ a {
     line-height: 1;
     white-space: nowrap;
     margin: 0;
+    will-change: transform, opacity;
 }
 
 .intro-subtitle {
@@ -347,6 +348,7 @@ a {
     justify-content: space-between; /* Anchor to opposite margins */
     width: 100%; /* Fill the width of the parent (PULIATTI) */
     margin-top: 1.25rem;
+    will-change: transform, opacity;
 }
 
 .intro-studio,
@@ -372,6 +374,7 @@ a {
     background: none;
     border: none;
     padding: 0;
+    will-change: transform, opacity;
 }
 
 @media (hover: hover) {

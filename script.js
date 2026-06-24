@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!wasVisible) navbar.classList.remove('visible');
             navbar.style.visibility = 'visible';
             introPuliatti.style.transform = originalTransform;
+            
+            // Reset scroll state trackers to trigger fresh layout recalculation
+            lastAppliedProgress = null;
         }
 
         calibratePositions();
@@ -92,14 +95,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         let ticking = false;
+        let lastAppliedProgress = null;
+        let lastIsMobile = null;
 
         function handleScroll() {
             const scrollY = window.scrollY;
             const isMobile = window.innerWidth <= 768;
 
+            // Reset tracked progress if screen type changes to ensure visual consistency
+            if (isMobile !== lastIsMobile) {
+                lastAppliedProgress = null;
+                lastIsMobile = isMobile;
+            }
+
             if (isMobile) {
                 // Mobile layout - fast fadeout within 120px scroll
-                if (scrollY <= 0) {
+                const progress = Math.min(scrollY / 120, 1);
+
+                // Early exit if state is already stabilized
+                if (progress === 1 && lastAppliedProgress === 1) {
+                    return;
+                }
+                if (progress <= 0 && lastAppliedProgress <= 0) {
+                    return;
+                }
+                lastAppliedProgress = progress;
+
+                if (progress <= 0) {
                     intro.style.opacity = '1';
                     introLogoGroup.style.pointerEvents = 'auto';
                     introPuliatti.style.transform = 'none';
@@ -110,14 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                const fadeProgress = Math.min(scrollY / 120, 1);
-                intro.style.opacity = String(1 - fadeProgress);
-                introPuliatti.style.opacity = String(1 - fadeProgress);
-                introSubtitle.style.opacity = String(1 - fadeProgress);
-                introArrow.style.opacity = String(1 - fadeProgress);
+                intro.style.opacity = String(1 - progress);
+                introPuliatti.style.opacity = String(1 - progress);
+                introSubtitle.style.opacity = String(1 - progress);
+                introArrow.style.opacity = String(1 - progress);
 
                 // Slide elements up slightly while fading out
-                introLogoGroup.style.transform = `translateY(${-fadeProgress * 15}px)`;
+                introLogoGroup.style.transform = `translateY(${-progress * 15}px)`;
 
                 if (scrollY >= 80) {
                     navbar.classList.add('visible');
@@ -131,6 +152,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // --- Desktop Layout (Interpolation Logic) ---
             const progress = Math.min(scrollY / TRANSITION_DISTANCE, 1);
+
+            // Early exit if state is already stabilized
+            if (progress === 1 && lastAppliedProgress === 1) {
+                return;
+            }
+            if (progress <= 0 && lastAppliedProgress <= 0) {
+                return;
+            }
+            lastAppliedProgress = progress;
 
             // Ensure introLogoGroup transforms are reset if resized from mobile
             introLogoGroup.style.transform = 'none';
