@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
     <link rel="stylesheet" href="style.css?v=1.1">
 </head>
-<body class="light-theme palette-a">
+<body class="light-theme">
 
     <!-- Full-screen intro overlay (background only) -->
     <section id="intro" class="intro"></section>
@@ -45,10 +45,6 @@
             <li><a href="#contatti">CONTATTI</a></li>
         </ul>
         <div class="nav-controls">
-            <button class="theme-toggle" aria-label="Toggle Theme">
-                <span class="icon-light">☼</span>
-                <span class="icon-dark">☾</span>
-            </button>
             <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="4" y1="6" x2="20" y2="6" class="line-top"></line>
@@ -488,73 +484,6 @@
         </div>
     </footer>
 
-    <!-- DEV ONLY: Palette Switcher -->
-    <div id="dev-palette-switcher">
-        <div id="dev-palette-panel" role="menu" aria-label="Palette switcher">
-            <div class="dev-palette-label">Palette Preview</div>
-
-            <button class="dev-palette-btn active" data-palette="palette-a" role="menuitem">
-                <div class="dev-palette-swatches">
-                    <div class="dev-swatch" style="background:#233884"></div>
-                    <div class="dev-swatch" style="background:#A73C2A"></div>
-                    <div class="dev-swatch" style="background:#E6E9E5"></div>
-                </div>
-                <div class="dev-palette-info">
-                    <div class="dev-palette-name">A — Institutional</div>
-                    <div class="dev-palette-desc">Navy + Terracotta</div>
-                </div>
-            </button>
- 
-            <button class="dev-palette-btn" data-palette="palette-b" role="menuitem">
-                <div class="dev-palette-swatches">
-                    <div class="dev-swatch" style="background:#1A4D2E"></div>
-                    <div class="dev-swatch" style="background:#C8A45A"></div>
-                    <div class="dev-swatch" style="background:#F0F4EF"></div>
-                </div>
-                <div class="dev-palette-info">
-                    <div class="dev-palette-name">B — Midnight Emerald</div>
-                    <div class="dev-palette-desc">Forest Green + Champagne</div>
-                </div>
-            </button>
- 
-            <button class="dev-palette-btn" data-palette="palette-c" role="menuitem">
-                <div class="dev-palette-swatches">
-                    <div class="dev-swatch" style="background:#3D1F8C"></div>
-                    <div class="dev-swatch" style="background:#E07B00"></div>
-                    <div class="dev-swatch" style="background:#F3F1FA"></div>
-                </div>
-                <div class="dev-palette-info">
-                    <div class="dev-palette-name">C — Cosmic Violet</div>
-                    <div class="dev-palette-desc">Indigo + Electric Amber</div>
-                </div>
-            </button>
- 
-            <button class="dev-palette-btn" data-palette="palette-d" role="menuitem">
-                <div class="dev-palette-swatches">
-                    <div class="dev-swatch" style="background:#1A0A0A"></div>
-                    <div class="dev-swatch" style="background:#C0607A"></div>
-                    <div class="dev-swatch" style="background:#FAF4F4"></div>
-                </div>
-                <div class="dev-palette-info">
-                    <div class="dev-palette-name">D — Rose Noir</div>
-                    <div class="dev-palette-desc">Near-Black + Dusty Rose</div>
-                </div>
-            </button>
- 
-            <button class="dev-palette-btn" data-palette="palette-e" role="menuitem">
-                <div class="dev-palette-swatches">
-                    <div class="dev-swatch" style="background:#1433CC"></div>
-                    <div class="dev-swatch" style="background:#FF4520"></div>
-                    <div class="dev-swatch" style="background:#F0F4FF"></div>
-                </div>
-                <div class="dev-palette-info">
-                    <div class="dev-palette-name">E — Electric Ink</div>
-                    <div class="dev-palette-desc">Vivid Cobalt + Hot Coral</div>
-                </div>
-            </button>
-        </div>
-        <button id="dev-palette-trigger" aria-label="Toggle palette switcher" title="Dev: Switch palette">🎨</button>
-    </div>
 
     <script src="script.js?v=1.1"></script>
 </body>
