@@ -116,6 +116,7 @@
             <li><a href="#formazione">FORMAZIONE</a></li>
             <li><a href="#network">NETWORK</a></li>
             <li><a href="#azioni">AZIONI LEGALI</a></li>
+            <li><a href="#prenota">PRENOTA</a></li>
             <li><a href="#contatti">CONTATTI</a></li>
         </ul>
         <div class="nav-controls">
@@ -469,6 +470,61 @@
                             </span>
                         </span>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             PRENOTA UNA CONSULENZA
+             ============================ -->
+        <section id="prenota" class="section section-alt reveal">
+            <div class="container prenota-container">
+                <div class="prenota-content">
+                    <span class="label">CONTATTO DIRETTO</span>
+                    <h2 class="section-title no-border">Prenota una Consulenza</h2>
+                    <p class="large-text">Affidati alla professionalità e all'esperienza dello Studio Legale Puliatti. Saremo al tuo fianco per rappresentarti con integrità e determinazione, guidandoti in ogni fase del tuo caso, con competenza e attenzione personalizzata.</p>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <!-- access_key placeholder (for Web3Forms/Formspree) -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        
+                        <div class="form-group">
+                            <label for="form-name">Nome e Cognome *</label>
+                            <input type="text" id="form-name" name="name" placeholder="Nome" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="form-email">Email *</label>
+                            <input type="email" id="form-email" name="email" placeholder="Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="form-phone">Telefono *</label>
+                            <input type="tel" id="form-phone" name="phone" placeholder="Cellulare" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="form-message">Messaggio *</label>
+                            <textarea id="form-message" name="message" rows="4" placeholder="Racconta il tuo caso e noi ti richiameremo" required></textarea>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="form-privacy" name="privacy" required>
+                            <label for="form-privacy">Acconsento al trattamento dei dati personali in conformità alla <a href="privacy-policy.html" target="_blank">Privacy Policy</a> *</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-slide btn-submit">
+                            <span class="btn-text">Invia Richiesta</span>
+                            <span class="btn-icon">
+                                <span class="btn-icon-slide">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                            </span>
+                        </button>
+                        
+                        <div id="form-status" class="form-status"></div>
+                    </form>
                 </div>
             </div>
         </section>

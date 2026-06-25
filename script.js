@@ -495,4 +495,76 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
         highlightNavOnScroll(); // Run once initially
     }
+
+    // ============================================
+    // 9. Contact Form AJAX Submission (Web3Forms/Mock)
+    // ============================================
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm && formStatus) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            const submitBtnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+            const originalBtnText = submitBtnText ? submitBtnText.textContent : 'Invia Richiesta';
+            
+            // Disable form inputs and show loading state
+            if (submitBtn) submitBtn.disabled = true;
+            if (submitBtnText) submitBtnText.textContent = 'Invio in corso...';
+            
+            formStatus.style.display = 'none';
+            formStatus.className = 'form-status';
+            
+            const formData = new FormData(contactForm);
+            const accessKey = formData.get('access_key');
+            
+            if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
+                // Mock Mode
+                setTimeout(() => {
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (submitBtnText) submitBtnText.textContent = originalBtnText;
+                    
+                    formStatus.textContent = 'Grazie! La tua richiesta di consulenza è stata inviata con successo (Modalità Demo).';
+                    formStatus.classList.add('success');
+                    contactForm.reset();
+                }, 1000);
+            } else {
+                // Real submission to Web3Forms
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+                
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let jsonRes = await response.json();
+                    if (response.status == 200) {
+                        formStatus.textContent = 'Grazie! La tua richiesta di consulenza è stata inviata con successo.';
+                        formStatus.classList.add('success');
+                        contactForm.reset();
+                    } else {
+                        console.log(response);
+                        formStatus.textContent = jsonRes.message || 'Si è verificato un errore durante l\'invio.';
+                        formStatus.classList.add('error');
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    formStatus.textContent = 'Si è verificato un errore di connessione. Riprova più tardi.';
+                    formStatus.classList.add('error');
+                })
+                .then(() => {
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (submitBtnText) submitBtnText.textContent = originalBtnText;
+                });
+            }
+        });
+    }
 });

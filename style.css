@@ -1799,3 +1799,96 @@ details[open] > .accordion-trigger {
 .copy-email-btn svg {
     display: block;
 }
+
+/* Prenota una Consulenza Form Section */
+.prenota-container {
+    padding: 2rem 0;
+}
+
+.prenota-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 550;
+    color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    background: rgba(var(--bg-rgb), 0.3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'Geist', sans-serif;
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--highlight);
+    background: rgba(var(--bg-rgb), 0.6);
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.form-checkbox input {
+    margin-top: 0.25rem;
+    cursor: pointer;
+    accent-color: var(--highlight);
+}
+
+.form-checkbox a {
+    text-decoration: underline;
+    color: var(--text-main);
+}
+
+.form-status {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    display: none;
+    line-height: 1.5;
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
