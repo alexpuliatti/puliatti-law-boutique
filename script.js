@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Pre-calculate positions for pixel-perfect interpolation
         let startX, startY, endX, endY;
+        let ticking = false;
+        let lastAppliedProgress = null;
+        let lastIsMobile = null;
 
         function calibratePositions() {
             // Reset transform to get natural positions
@@ -76,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Restore state
             if (!wasVisible) navbar.classList.remove('visible');
-            navbar.style.visibility = 'visible';
+            navbar.style.visibility = '';
             introPuliatti.style.transform = originalTransform;
             
             // Reset scroll state trackers to trigger fresh layout recalculation
@@ -94,10 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        let ticking = false;
-        let lastAppliedProgress = null;
-        let lastIsMobile = null;
-
         function handleScroll() {
             const scrollY = window.scrollY;
             const isMobile = window.innerWidth <= 768;
@@ -112,11 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Mobile layout - fast fadeout within 120px scroll
                 const progress = Math.min(scrollY / 120, 1);
 
-                // Early exit if state is already stabilized
+                // Early exit only when fully settled AND not on first run (lastAppliedProgress !== null)
                 if (progress === 1 && lastAppliedProgress === 1) {
                     return;
                 }
-                if (progress <= 0 && lastAppliedProgress <= 0) {
+                if (progress <= 0 && lastAppliedProgress !== null && lastAppliedProgress <= 0) {
                     return;
                 }
                 lastAppliedProgress = progress;
@@ -153,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // --- Desktop Layout (Interpolation Logic) ---
             const progress = Math.min(scrollY / TRANSITION_DISTANCE, 1);
 
-            // Early exit if state is already stabilized
+            // Early exit only when fully settled AND not on first run (lastAppliedProgress !== null)
             if (progress === 1 && lastAppliedProgress === 1) {
                 return;
             }
-            if (progress <= 0 && lastAppliedProgress <= 0) {
+            if (progress <= 0 && lastAppliedProgress !== null && lastAppliedProgress <= 0) {
                 return;
             }
             lastAppliedProgress = progress;
