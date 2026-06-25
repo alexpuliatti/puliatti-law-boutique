@@ -6,12 +6,86 @@
     <title>Studio Legale Puliatti — Diritto Sanitario, Civile, Amministrativo</title>
     <meta name="description" content="Lo Studio Legale Puliatti è una boutique legale specializzata in diritto sanitario, diritto civile, diritto del lavoro e diritto amministrativo, con sedi a Catania, Roma e Firenze.">
     <link rel="icon" href="images/fav.png" type="image/png">
-    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" /></noscript>
-    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.studiolegalepuliatti.com/">
+    <meta property="og:title" content="Studio Legale Puliatti — Diritto Sanitario, Civile, Amministrativo">
+    <meta property="og:description" content="Studio Legale Puliatti è una boutique legale specializzata in diritto sanitario, civile, amministrativo e del lavoro, con sedi a Catania, Roma e Firenze.">
+    <meta property="og:image" content="https://www.studiolegalepuliatti.com/images/1693843600090.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.studiolegalepuliatti.com/">
+    <meta property="twitter:title" content="Studio Legale Puliatti — Diritto Sanitario, Civile, Amministrativo">
+    <meta property="twitter:description" content="Studio Legale Puliatti è una boutique legale specializzata in diritto sanitario, civile, amministrativo e del lavoro, con sedi a Catania, Roma e Firenze.">
+    <meta property="twitter:image" content="https://www.studiolegalepuliatti.com/images/1693843600090.jpeg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Studio Legale Puliatti",
+      "image": "https://www.studiolegalepuliatti.com/images/1693843600090.jpeg",
+      "@id": "https://www.studiolegalepuliatti.com/#legalservice",
+      "url": "https://www.studiolegalepuliatti.com",
+      "telephone": "+390959311944",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Viale Vittorio Veneto n. 227",
+        "addressLocality": "Catania",
+        "postalCode": "95127",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.5236,
+        "longitude": 15.0959
+      },
+      "department": [
+        {
+          "@type": "LegalService",
+          "name": "Studio Legale Puliatti - Roma",
+          "telephone": "+390959311944",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Monte Acero n. 2/a",
+            "addressLocality": "Roma",
+            "postalCode": "00141",
+            "addressCountry": "IT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.9388,
+            "longitude": 12.5356
+          }
+        },
+        {
+          "@type": "LegalService",
+          "name": "Studio Legale Puliatti - Firenze",
+          "telephone": "+390959311944",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Ciro Menotti n. 6",
+            "addressLocality": "Firenze",
+            "postalCode": "50136",
+            "addressCountry": "IT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.7656,
+            "longitude": 11.2748
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="style.css?v=1.1">
 </head>
 <body class="light-theme">
+    <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
 
     <!-- Full-screen intro overlay (background only) -->
     <section id="intro" class="intro"></section>
@@ -19,7 +93,7 @@
     <!-- Intro Logo (Fixed, outside the scrolling background for seamless transition) -->
     <div class="intro-logo-group" id="intro-logo">
         <div class="intro-logo-inner">
-            <h1 class="intro-puliatti">PULIATTI</h1>
+            <div class="intro-puliatti">PULIATTI</div>
             <div class="intro-subtitle">
                 <span class="intro-studio">STUDIO</span>
                 <span class="intro-legale">LEGALE</span>
@@ -58,7 +132,8 @@
     <!-- Spacer to create scroll room for the fixed intro -->
     <div class="intro-spacer"></div>
 
-    <main>
+    <main id="main-content">
+        <h1 class="sr-only">Studio Legale Puliatti — Diritto Sanitario, Civile, Amministrativo</h1>
 
         <!-- ============================
              LO STUDIO
@@ -110,7 +185,7 @@
             <div class="container">
                 <div class="lawyer-grid">
                     <div class="lawyer-image-container">
-                        <img src="images/1693843600090.jpeg" alt="Avv. Antonio Puliatti" class="lawyer-image">
+                        <img src="images/1693843600090.jpeg" alt="Avv. Antonio Puliatti" class="lawyer-image" loading="lazy" width="800" height="800">
                     </div>
                     <div class="lawyer-content">
                         <span class="label">FONDATORE</span>
@@ -239,7 +314,7 @@
                     <!-- Boutique Team Image -->
                     <div class="boutique-profile">
                         <div class="boutique-image-wrap">
-                            <img src="images/DqyyUiN7ytaZYsZ7kNbHk_NSwl8n2U.webp" alt="Il Team Studio Legale Puliatti" class="boutique-image">
+                            <img src="images/DqyyUiN7ytaZYsZ7kNbHk_NSwl8n2U.webp" alt="Il Team Studio Legale Puliatti" class="boutique-image" loading="lazy" width="3168" height="2176">
                         </div>
                     </div>
 
@@ -296,7 +371,7 @@
                         <h2 class="section-title no-border">Formazione Sindacale</h2>
                         <p class="large-text">Lo Studio organizza <strong>Corsi di Formazione per Quadri Sindacali</strong> nel settore della sanità.</p>
                         <p class="studio-body">L'obiettivo fondamentale del corso è fornire ai giovani quadri sindacali gli strumenti conoscitivi necessari per comprendere e divulgare la normativa giuridica, sindacale e contrattuale vigente. Attraverso un approccio pratico e autorevole, ogni partecipante acquisirà gli elementi utili per operare con consapevolezza nella complessa realtà sindacale e professionale odierna.</p>
-                        <a href="mailto:segreteria@studiolegalepuliatti.com?subject=Richiesta informazioni corso formazione sindacale" class="btn btn-slide" id="formazione-cta">
+                        <a href="#" class="btn btn-slide obfuscated-email" id="formazione-cta" data-user="segreteria" data-domain="studiolegalepuliatti.com" data-subject="Richiesta informazioni corso formazione sindacale">
                             <span class="btn-text">Richiedi Informazioni</span>
                             <span class="btn-icon">
                                 <span class="btn-icon-slide">
@@ -385,7 +460,7 @@
                     <p>La <strong>Corte di Cassazione a Sezioni Unite</strong> si è pronunciata con sentenza n. 9147/2009, qualificando la fattispecie come "responsabilità per inadempimento di una obbligazione <em>ex lege</em> dello Stato, di natura indennitaria per attività non antigiuridica", con termine di prescrizione decennale. A essa sono seguite sentenze che hanno individuato la decorrenza della prescrizione dall'entrata in vigore della L. 370/99.</p>
                     <p>Il risarcimento è stato parametrato sugli importi previsti dalla Legge 370/1999, pari a <strong>€ 6.713,94 per ogni anno di frequenza</strong>. Un recente <em>revirement</em> giurisprudenziale ha esteso il diritto anche agli iscritti dall'anno accademico 1976; la questione è stata rimessa alle Sezioni Unite.</p>
                     <p>Esistono inoltre diverse proposte di legge volte a riconoscere il dovuto risarcimento a quanti hanno promosso e hanno in corso un'azione giudiziaria — una via che potrebbe dare concreta attuazione alla direttiva violata in favore di quanti avranno pendente un'azione.</p>
-                    <a href="mailto:segreteria@studiolegalepuliatti.com?subject=Richiesta assistenza medici specialisti 1983-1991" class="btn btn-slide" id="azioni-cta">
+                    <a href="#" class="btn btn-slide obfuscated-email" id="azioni-cta" data-user="segreteria" data-domain="studiolegalepuliatti.com" data-subject="Richiesta assistenza medici specialisti 1983-1991">
                         <span class="btn-text">Richiedi Assistenza</span>
                         <span class="btn-icon">
                             <span class="btn-icon-slide">
@@ -399,75 +474,48 @@
         </section>
 
         <!-- ============================
-             SEDI
+             SEDI & CONTATTI
              ============================ -->
-        <section id="sedi" class="section section-alt reveal">
+        <section id="contatti" class="section reveal">
             <div class="container">
-                <h2 class="section-title">Sedi</h2>
-                <div class="sedi-grid">
+                <h2 class="section-title">Sedi &amp; Contatti</h2>
+                
+                <div class="sedi-grid" style="margin-bottom: 3.5rem;">
                     <div class="sede-card sede-card--primary">
                         <span class="label">SEDE PRINCIPALE</span>
                         <h3>Catania</h3>
                         <p>Viale Vittorio Veneto n. 227<br>95127 Catania</p>
-                        <a href="https://maps.google.com/?q=Viale+Vittorio+Veneto+227+Catania" target="_blank" rel="noopener" class="sede-link">Apri in Maps →</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Viale+Vittorio+Veneto+227+Catania" target="_blank" rel="noopener" class="sede-link">Apri in Maps →</a>
                     </div>
                     <div class="sede-card">
                         <span class="label">SEDE OPERATIVA</span>
                         <h3>Roma</h3>
-                        <p>Via Monte Acero n. 2/a<br>Studio Bazzani<br>00141 Roma</p>
+                        <p>Via Monte Acero n. 2/a<br>c/o Studio Bazzani<br>00141 Roma</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Via+Monte+Acero+2/a+Roma" target="_blank" rel="noopener" class="sede-link">Apri in Maps →</a>
                     </div>
                     <div class="sede-card">
                         <span class="label">SEDE OPERATIVA</span>
                         <h3>Firenze</h3>
-                        <p>Via Ciro Menotti n. 6<br>Studio Baldacci<br>50136 Firenze</p>
+                        <p>Via Ciro Menotti n. 6<br>c/o Studio Baldacci<br>50136 Firenze</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Via+Ciro+Menotti+6+Firenze" target="_blank" rel="noopener" class="sede-link">Apri in Maps →</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ============================
-             CONTATTI
-             ============================ -->
-        <section id="contatti" class="section reveal">
-            <div class="container">
-                <h2 class="section-title">Contatti</h2>
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h3>Sedi</h3>
-                        
-                        <div class="contact-sede">
-                            <h4 class="contact-sede-title">Catania <span class="label-mini">Sede Principale</span></h4>
-                            <p>Viale Vittorio Veneto n. 227 — 95127 Catania</p>
-                        </div>
-                        
-                        <div class="contact-sede">
-                            <h4 class="contact-sede-title">Roma <span class="label-mini">Sede Operativa</span></h4>
-                            <p>Via Monte Acero n. 2/a (c/o Studio Bazzani) — 00141 Roma</p>
-                        </div>
-                        
-                        <div class="contact-sede">
-                            <h4 class="contact-sede-title">Firenze <span class="label-mini">Sede Operativa</span></h4>
-                            <p>Via Ciro Menotti n. 6 (c/o Studio Baldacci) — 50136 Firenze</p>
-                        </div>
+                        <h3>Segreteria</h3>
+                        <p>La segreteria dello Studio è attiva per la ricezione telefonica e la pianificazione degli appuntamenti nelle sedi di Catania, Roma e Firenze.</p>
                     </div>
                     <div class="contact-details">
                         <h3>Recapiti</h3>
                         <p>Tel: <a href="tel:+390959311944">095 931944</a></p>
-                        <p>Email: <a href="mailto:segreteria@studiolegalepuliatti.com">segreteria@studiolegalepuliatti.com</a></p>
-                        <a href="https://maps.google.com/?q=Viale+Vittorio+Veneto+227+Catania" target="_blank" rel="noopener" class="btn outline btn-slide" id="maps-btn">
-                            <span class="btn-text">Apri in Maps (Catania)</span>
-                            <span class="btn-icon">
-                                <span class="btn-icon-slide">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                </span>
-                            </span>
-                        </a>
+                        <p>Email: <a href="#" class="obfuscated-email email-text" data-user="segreteria" data-domain="studiolegalepuliatti.com">segreteria [at] studiolegalepuliatti.com</a></p>
                     </div>
                 </div>
-                <div id="map" class="map-container"></div>
+                <div id="map" class="map-container" style="margin-top: 3rem;"></div>
             </div>
         </section>
+
     </main>
 
     <footer>

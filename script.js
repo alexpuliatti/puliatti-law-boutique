@@ -242,18 +242,38 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // ============================================
-    // 4. Map Initialization
+    // 4. Map Lazy Loading & Initialization
     // ============================================
     const mapContainer = document.getElementById('map');
-    if (mapContainer && typeof maplibregl !== 'undefined') {
-        const mapStyleDark = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+    
+    function loadMapLibre(callback) {
+        if (typeof maplibregl !== 'undefined') {
+            callback();
+            return;
+        }
+
+        // Load CSS
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
+        document.head.appendChild(link);
+
+        // Load JS
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js';
+        script.defer = true;
+        script.onload = callback;
+        document.head.appendChild(script);
+    }
+
+    function initializeMap() {
+        if (!mapContainer || typeof maplibregl === 'undefined') return;
+
         const mapStyleLight = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
-        
-        const isDark = body.classList.contains('dark-theme');
 
         const map = new maplibregl.Map({
             container: 'map',
-            style: isDark ? mapStyleDark : mapStyleLight,
+            style: mapStyleLight,
             center: [12.5, 41.9], // Central Italy initial view
             zoom: 5,
             scrollZoom: false
@@ -291,8 +311,24 @@ document.addEventListener('DOMContentLoaded', () => {
         map.on('load', () => {
             map.fitBounds(bounds, { padding: 100, maxZoom: 14 });
         });
+    }
 
-
+    if (mapContainer) {
+        const mapObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    observer.unobserve(mapContainer);
+                    loadMapLibre(() => {
+                        initializeMap();
+                    });
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '300px', // start loading before the user gets there
+            threshold: 0
+        });
+        mapObserver.observe(mapContainer);
     }
 
 
@@ -353,5 +389,110 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggleBtn.setAttribute('aria-label', 'Apri menu');
         navLinks.classList.remove('active');
         body.classList.remove('menu-open');
+    }
+
+    // ============================================
+    // 7. Obfuscated Email Decoding & Copy to Clipboard
+    // ============================================
+    document.querySelectorAll('.obfuscated-email').forEach(link => {
+        const user = link.getAttribute('data-user');
+        const domain = link.getAttribute('data-domain');
+        const subject = link.getAttribute('data-subject');
+        
+        if (user && domain) {
+            const email = `${user}@${domain}`;
+            let href = `mailto:${email}`;
+            if (subject) {
+                href += `?subject=${encodeURIComponent(subject)}`;
+            }
+            
+            link.href = href;
+            
+            // Only update text content if it contains the obfuscated pattern
+            if (link.textContent.includes('[at]')) {
+                link.textContent = email;
+            }
+            
+            // Add copy button next to email addresses if it's text email
+            if (link.classList.contains('email-text')) {
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-email-btn';
+                copyBtn.setAttribute('aria-label', 'Copia indirizzo email');
+                copyBtn.title = 'Copia email negli appunti';
+                copyBtn.innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                `;
+                
+                link.parentNode.insertBefore(copyBtn, link.nextSibling);
+                
+                copyBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(email).then(() => {
+                        const originalHTML = copyBtn.innerHTML;
+                        copyBtn.innerHTML = `
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        `;
+                        copyBtn.classList.add('copied');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHTML;
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    });
+                });
+            }
+        }
+    });
+
+    // ============================================
+    // 8. Active Nav Link Highlighting on Scroll
+    // ============================================
+    const navLinksList = document.querySelectorAll('.nav-links a');
+    
+    // Only track sections that have a corresponding link in the navbar
+    const scrollSections = Array.from(document.querySelectorAll('section[id]')).filter(sec => {
+        const id = sec.getAttribute('id');
+        return Array.from(navLinksList).some(link => {
+            const href = link.getAttribute('href');
+            return href === `#${id}` || href.endsWith(`#${id}`);
+        });
+    });
+
+    if (scrollSections.length > 0 && navLinksList.length > 0) {
+        function highlightNavOnScroll() {
+            const scrollPosition = window.scrollY + window.innerHeight * 0.3; // 30% from the top of viewport
+            
+            let currentSectionId = null;
+            
+            // Find the last section that is above the scrollPosition
+            for (let i = 0; i < scrollSections.length; i++) {
+                const sec = scrollSections[i];
+                const secTop = sec.offsetTop;
+                if (scrollPosition >= secTop) {
+                    currentSectionId = sec.getAttribute('id');
+                }
+            }
+            
+            if (currentSectionId) {
+                navLinksList.forEach(link => {
+                    const hrefAttr = link.getAttribute('href');
+                    if (hrefAttr === `#${currentSectionId}` || hrefAttr.endsWith(`#${currentSectionId}`)) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            } else {
+                // Clear highlighting if we're at the very top (in the intro)
+                navLinksList.forEach(link => link.classList.remove('active'));
+            }
+        }
+
+        window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
+        highlightNavOnScroll(); // Run once initially
     }
 });
