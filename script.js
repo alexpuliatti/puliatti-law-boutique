@@ -1,3 +1,9 @@
+// Prevent browser from auto-scrolling to a hash anchor or restoring scroll position.
+// This ensures the page always starts at the top (intro/logo section).
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // 1. Theme Toggle Management
@@ -220,6 +226,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Run once on load in case the page loads mid-scroll
         handleScroll();
+    }
+
+    // ============================================
+    // 2b. Hash-on-load: always start from top, then scroll to section
+    // ============================================
+    if (window.location.hash) {
+        // Immediately jump to top before the browser's native anchor scroll settles
+        window.scrollTo(0, 0);
+
+        const hashTarget = document.querySelector(window.location.hash);
+        if (hashTarget) {
+            // Wait for intro animation to play, then scroll to the target section
+            setTimeout(() => {
+                hashTarget.scrollIntoView({ behavior: 'smooth' });
+            }, 1800);
+        }
     }
 
     // ============================================
