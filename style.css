@@ -411,27 +411,30 @@ a {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 var(--border);
-    transition: background 0.4s ease, transform 0.3s ease, opacity 0.3s ease;
+    transition: background 0.4s ease, transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
 
     /* Start hidden — animated in via JS */
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-100%);
     pointer-events: none;
 }
 
 .navbar.visible {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
-    transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out), background 0.4s ease;
+    transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out), background 0.4s ease, visibility 0s;
 }
 
 /* When navbar is going away (scrolling back up) */
 .navbar.hiding {
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-20px);
     pointer-events: none;
-    transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
+    transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out), visibility 250ms var(--ease-out);
 }
 
 .logo {
@@ -563,8 +566,6 @@ body.menu-open {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
 }
 
 .container {
@@ -1668,14 +1669,17 @@ details[open] > .accordion-trigger {
         padding: 6rem 2rem 3rem;
         z-index: 999;
         transform: translateX(100%);
-        transition: transform 400ms var(--ease-in-out), opacity 300ms ease;
+        transition: transform 400ms var(--ease-in-out), opacity 300ms ease, visibility 300ms ease;
         opacity: 0;
+        visibility: hidden;
         margin-top: 0;
     }
     
     .nav-links.active {
         transform: translateX(0);
         opacity: 1;
+        visibility: visible;
+        transition: transform 400ms var(--ease-in-out), opacity 300ms ease, visibility 0s;
     }
 
     .nav-links a {
