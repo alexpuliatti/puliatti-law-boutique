@@ -179,7 +179,7 @@ summary:focus-visible {
     font-weight: normal;
     font-size: clamp(4rem, 10vw, 8rem);
     letter-spacing: 0.06em;
-    color: var(--text-main);
+    color: var(--accent);
     line-height: 1;
     white-space: nowrap;
     margin: 0;
@@ -200,7 +200,7 @@ summary:focus-visible {
     font-size: clamp(0.75rem, 1.8vw, 1.1rem);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--accent);
 }
 
 /* Scroll-down arrow — Locked to bottom */
@@ -283,7 +283,7 @@ summary:focus-visible {
 .logo {
     font-family: 'Arrow', serif;
     font-size: 1.8rem;
-    color: var(--text-main);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     padding-left: 0.12em; /* Match intro logo for seamless handoff */
@@ -723,16 +723,21 @@ footer {
 
 .reveal {
     opacity: 0;
-    /* translateY(24px) is enough — large values feel heavy */
-    transform: translateY(24px);
-    /* 600ms: fast enough to feel snappy, slow enough to be noticed */
-    transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+    transition: opacity 600ms var(--ease-out);
 }
 
 .reveal.active {
     opacity: 1;
+}
+
+/* Translate the inner container instead of the section background to avoid subpixel gaps */
+.reveal > .container {
+    transform: translateY(24px);
+    transition: transform 600ms var(--ease-out);
+}
+
+.reveal.active > .container {
     transform: translateY(0);
-    /* No will-change here — only set it before animation starts if needed */
 }
 
 /* Staggered card entry — keep translateY small (8px) to feel light */
@@ -807,9 +812,11 @@ footer {
     padding: 2px 6px;
 }
 
-.maplibregl-popup-close-button:hover {
-    background: transparent;
-    color: var(--highlight);
+@media (hover: hover) and (pointer: fine) {
+    .maplibregl-popup-close-button:hover {
+        background: transparent;
+        color: var(--highlight);
+    }
 }
 
 /* ============================================
@@ -825,7 +832,8 @@ footer {
         transform: translateY(0);
     }
 
-    .reveal {
+    .reveal,
+    .reveal > .container {
         transition-duration: 0.1s;
     }
 
@@ -1006,9 +1014,11 @@ footer {
     display: none;
 }
 
-.accordion-trigger:hover {
-    color: var(--accent);
-    background: var(--bg-alt);
+@media (hover: hover) and (pointer: fine) {
+    .accordion-trigger:hover {
+        color: var(--accent);
+        background: var(--bg-alt);
+    }
 }
 
 .accordion-icon {
@@ -1291,7 +1301,8 @@ details[open] > .accordion-trigger {
 
 .network-grid {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -1315,12 +1326,13 @@ details[open] > .accordion-trigger {
 
 .network-logo-text {
     font-family: 'Arrow', serif;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color: var(--accent);
     letter-spacing: -0.02em;
     white-space: nowrap;
-    min-width: 80px;
-    line-height: 1;
+    min-width: 120px;
+    flex-shrink: 0;
+    line-height: 1.1;
     padding-top: 0.5rem;
 }
 
@@ -1398,8 +1410,10 @@ details[open] > .accordion-trigger {
     transition: color 0.3s ease;
 }
 
-.sede-link:hover {
-    color: #E6E9E5;
+@media (hover: hover) and (pointer: fine) {
+    .sede-link:hover {
+        color: #E6E9E5;
+    }
 }
 
 /* ============================================
@@ -1789,9 +1803,11 @@ details[open] > .accordion-trigger {
     vertical-align: middle;
     transition: background 0.2s, color 0.2s;
 }
-.copy-email-btn:hover {
-    background: var(--border);
-    color: var(--text-main);
+@media (hover: hover) and (pointer: fine) {
+    .copy-email-btn:hover {
+        background: var(--border);
+        color: var(--text-main);
+    }
 }
 .copy-email-btn.copied {
     color: #28a745;
