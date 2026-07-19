@@ -564,6 +564,7 @@ body.menu-open {
     font-size: 1rem; /* Reduced from 1.1rem */
     line-height: 1.5;
     margin-bottom: 0;
+    text-align: justify;
 }
 
 /* Contacts */

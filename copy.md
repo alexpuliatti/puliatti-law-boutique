@@ -1,5 +1,5 @@
 
-Lo Studio Legale Puliatti, fondato nel 1990, si occupa di diritto civile, diritto del lavoro e diritto amministrativo, con particolare attenzione per tutte le controversie relative al diritto sanitario e della salute anche dinanzi alle Corti superiori
+Lo Studio Legale Puliatti, fondato nel 1990, si occupa di diritto civile, diritto del lavoro e diritto amministrativo, con una profonda vocazione per il diritto sanitario e della tutela dei professionisti della salute.
 
 DOVE
 
