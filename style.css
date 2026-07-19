@@ -327,6 +327,25 @@ summary:focus-visible {
     gap: 0.5rem;
 }
 
+.lang-toggle {
+    font-size: 0.9rem;
+    font-family: 'Geist', sans-serif;
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .lang-toggle:hover {
+        border-color: var(--border);
+        background: rgba(var(--text-main-rgb), 0.05);
+    }
+}
+
 .menu-toggle {
     display: none;
     background: none;
