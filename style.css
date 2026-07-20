@@ -1928,3 +1928,11 @@ details[open] > .accordion-trigger {
     color: #dc3545;
     border: 1px solid rgba(220, 53, 69, 0.2);
 }
+
+/* -------------------------------------
+   JUSTIFY TEXTS IN ATTIVITA & FORMAZIONE
+   ------------------------------------- */
+#attivita p,
+#formazione p {
+    text-align: justify;
+}
