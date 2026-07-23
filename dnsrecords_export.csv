@@ -1,0 +1,56 @@
+Name;Content;Ttl;Type
+a1._domainkey.studiolegalepuliatti.com.;"""v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoOhAWzBuKQYXU6E3E9efq+DPvtkkvWPg3EtB+BT2cTrMGh6Xy00mXfPi/EzubRpbhHpv3b3k1d65Vyhmpp5O3HzTQyzIqYMMF5iF5y05D5aEux3pj/i1g5LkAOFE0Xdf+wnI8zppP2jP7IV4bwKPr1OnBqOjs8hfBWSEGaCSFD/aVbOdNldHiw"" ""SalzDL38E+IcT0KQB+BdutC2T9B5idcSPaBY57sC4hq31wpBlgNcYpIMDxOQN+E9E+TbgnlJYCOYsD5S0amYFivcJObjSGpdstMBfaM1ox5iEQVpEhLz5cwgohjrMst2us7G9eHZ6p2jR7X+/yTP8ryAAywzMJ5wIDAQAB""";3600;TXT
+mx.studiolegalepuliatti.com.;62.149.128.74;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.72;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.166;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.163;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.160;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.157;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.154;3600;A
+mx.studiolegalepuliatti.com.;62.149.128.151;3600;A
+www.studiolegalepuliatti.com.;31.11.36.33;300;A
+localhost.studiolegalepuliatti.com.;127.0.0.1;3600;A
+_domainconnect.studiolegalepuliatti.com.;_domainconnect.hst.aruba.it.;3600;CNAME
+stat.studiolegalepuliatti.com.;redirectstat.aruba.it.;3600;CNAME
+sms.studiolegalepuliatti.com.;admin.sms.aruba.it.;3600;CNAME
+smtp.studiolegalepuliatti.com.;62.149.128.202;3600;A
+smtp.studiolegalepuliatti.com.;62.149.128.203;3600;A
+smtp.studiolegalepuliatti.com.;62.149.128.201;3600;A
+smtp.studiolegalepuliatti.com.;62.149.128.200;3600;A
+ftp.studiolegalepuliatti.com.;89.46.104.211;3600;A
+ftp.studiolegalepuliatti.com.;89.46.104.218;3600;A
+_xmpp-client._tcp.studiolegalepuliatti.com.;5 0 5222 imchat1.aruba.it.;3600;SRV
+_xmpp-server._tcp.studiolegalepuliatti.com.;5 0 5269 imchat1.aruba.it.;3600;SRV
+_autodiscover._tcp.studiolegalepuliatti.com.;0 0 443 autodiscover.aruba.it.;3600;SRV
+imap.studiolegalepuliatti.com.;imaps.aruba.it.;3600;CNAME
+admin.studiolegalepuliatti.com.;admin.redirect.aruba.it.;3600;CNAME
+webmail.studiolegalepuliatti.com.;62.149.158.92;3600;A
+webmail.studiolegalepuliatti.com.;62.149.158.91;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.74;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.166;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.163;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.160;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.151;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.154;3600;A
+mail.studiolegalepuliatti.com.;62.149.128.157;3600;A
+autoconfig.studiolegalepuliatti.com.;autodiscover.aruba.it.;3600;CNAME
+statistiche.studiolegalepuliatti.com.;redirectstat.aruba.it.;3600;CNAME
+_dmarc.studiolegalepuliatti.com.;"""v=DMARC1; p=none; adkim=r; aspf=r;""";3600;TXT
+pop3.studiolegalepuliatti.com.;62.149.128.161;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.164;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.152;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.155;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.75;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.73;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.167;3600;A
+pop3.studiolegalepuliatti.com.;62.149.128.158;3600;A
+@;"""v=spf1 include:_spf.aruba.it ~all""";3600;TXT
+@;10 mx.studiolegalepuliatti.com.;3600;MX
+@;dns.technorail.com. hostmaster.studiolegalepuliatti.com. 2024120701 86400 7200 2592000 3600;3600;SOA
+@;dns.technorail.com.;3600;NS
+@;dns4.arubadns.cz.;3600;NS
+@;dns3.arubadns.net.;3600;NS
+@;dns2.technorail.com.;3600;NS
+@;31.11.36.33;300;A
+@;2a00:6d40:4:1::c327:33;300;AAAA
+www.studiolegalepuliatti.com.;2a00:6d40:4:1::c327:33;300;AAAA
