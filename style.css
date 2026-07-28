@@ -548,6 +548,7 @@ body.menu-open {
     color: var(--text-main);
     max-width: 900px;
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .grid-4 {
@@ -876,6 +877,7 @@ footer {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .studio-pillars {
